@@ -16,7 +16,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Brand Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.2">
+  <style>
+    /* Instant Anti-Flash CTA Rules: Desktop = 'Book Now', Mobile = 'Book' */
+    .btn-text-mobile { display: none !important; }
+    .btn-text-desktop { display: inline !important; }
+    @media (max-width: 960px) {
+      .btn-text-desktop { display: none !important; }
+      .btn-text-mobile { display: inline !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -55,7 +64,7 @@
         <!-- Right Header CTA: Book Now + Animated Hamburger -->
         <div class="nav-actions">
           <a href="booking.html" class="btn btn-header-cta ">
-            <span class="btn-text-desktop">Book Now</span><span class="btn-text-mobile">Book</span>
+            <span class="btn-text-desktop">Book Now</span><span class="btn-text-mobile" style="display:none;">Book</span>
           </a>
           <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle Mobile Menu" aria-expanded="false">
             <span class="hamburger-bar bar-1"></span>

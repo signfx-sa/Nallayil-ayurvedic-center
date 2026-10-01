@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  syncHeaderCtaText();
   // Initialize Core Features
   initHeroSlider();
   initHeaderScroll();
@@ -1112,3 +1113,26 @@ function initPageBannersSync() {
   window.addEventListener('nallayil_hero_slides_updated', syncBanners);
   window.addEventListener('nallayil_data_published', syncBanners);
 }
+
+
+/* --------------------------------------------------------------------------
+   HEADER CTA TEXT SYNC (Desktop: 'Book Now' | Mobile: 'Book')
+   -------------------------------------------------------------------------- */
+function syncHeaderCtaText() {
+  const isMobile = window.innerWidth <= 960;
+  document.querySelectorAll('.btn-header-cta').forEach(btn => {
+    const desktopSpan = btn.querySelector('.btn-text-desktop');
+    const mobileSpan = btn.querySelector('.btn-text-mobile');
+    if (desktopSpan && mobileSpan) {
+      if (isMobile) {
+        desktopSpan.style.setProperty('display', 'none', 'important');
+        mobileSpan.style.setProperty('display', 'inline', 'important');
+      } else {
+        desktopSpan.style.setProperty('display', 'inline', 'important');
+        mobileSpan.style.setProperty('display', 'none', 'important');
+      }
+    }
+  });
+}
+
+window.addEventListener('resize', syncHeaderCtaText, { passive: true });

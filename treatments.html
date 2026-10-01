@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.2">
   <style>
     .treatment-detail-card {
       background: #FFFFFF;
@@ -62,6 +62,15 @@
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Instant Anti-Flash CTA Rules: Desktop = 'Book Now', Mobile = 'Book' */
+    .btn-text-mobile { display: none !important; }
+    .btn-text-desktop { display: inline !important; }
+    @media (max-width: 960px) {
+      .btn-text-desktop { display: none !important; }
+      .btn-text-mobile { display: inline !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -98,7 +107,7 @@
         <!-- Right Header CTA: Book Now + Animated Hamburger -->
         <div class="nav-actions">
           <a href="booking.html" class="btn btn-header-cta ">
-            <span class="btn-text-desktop">Book Now</span><span class="btn-text-mobile">Book</span>
+            <span class="btn-text-desktop">Book Now</span><span class="btn-text-mobile" style="display:none;">Book</span>
           </a>
           <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle Mobile Menu" aria-expanded="false">
             <span class="hamburger-bar bar-1"></span>

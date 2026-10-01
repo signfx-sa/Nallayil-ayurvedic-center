@@ -1,4 +1,23 @@
 /* ==========================================================================
+   HEADER CTA RESPONSIVE TEXT CONTROL (DESKTOP: 'Book Now' | MOBILE: 'Book')
+   ========================================================================== */
+.btn-text-mobile {
+  display: none !important;
+}
+.btn-text-desktop {
+  display: inline !important;
+}
+
+@media (max-width: 960px) {
+  .btn-text-desktop {
+    display: none !important;
+  }
+  .btn-text-mobile {
+    display: inline !important;
+  }
+}
+
+/* ==========================================================================
    NALLAYIL AYURVEDA — PRODUCTION STYLESHEET
    Design System: Simple, Natural, Premium
    Brand Palette: White + Natural Deep Green (#087A24) + Herbal Green (#45B51B) + Fresh Leaf (#68C62A) + Soft Ivory (#F8F8F3)

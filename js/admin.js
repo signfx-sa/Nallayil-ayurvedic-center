@@ -66,9 +66,9 @@ function verifyAdminCredentials() {
     return;
   }
 
-  // Valid credentials mapping
-  const validUsers = ['admin', 'nallayil', 'hospital'];
-  const validPasswords = ['admin123', 'admin', 'nallayil123', 'nallayil', 'Nallayil@2026'];
+  // Valid credentials mapping (Requested: Nallayil / Secret@2026)
+  const validUsers = ['nallayil', 'admin'];
+  const validPasswords = ['Secret@2026', 'secret@2026', 'Nallayil@2026', 'admin123'];
 
   const isUserValid = validUsers.includes(user);
   const isPassValid = validPasswords.includes(pass);
@@ -85,7 +85,7 @@ function verifyAdminCredentials() {
   } else {
     if (errorMsg) {
       errorMsg.style.display = 'block';
-      errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Invalid credentials. Use <strong>admin</strong> / <strong>admin123</strong>';
+      errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Invalid credentials. Please enter valid Username and Password.';
     }
     if (passField) {
       passField.value = '';
