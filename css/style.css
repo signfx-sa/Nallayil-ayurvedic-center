@@ -9111,3 +9111,313 @@ body, p, span, a, input, button, select, textarea, .nav-link, .page-tag, .btn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* ==========================================================================
+   MOBILE VIEW POLISH: ITEMS 1, 2, 3, 4
+   ========================================================================== */
+
+/* --- ITEM 1: RESPONSIVE FIT FOR 3 PILLARS / SEALS (image_a359df.png) --- */
+.seal-text-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+@media (max-width: 768px) {
+  .about-round-seals-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 24px auto 30px !important;
+  }
+
+  .round-seal-item {
+    width: 100% !important;
+  }
+
+  .round-seal-badge {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 80px !important;
+    border-radius: 18px !important;
+    padding: 12px 18px !important;
+    background: radial-gradient(circle at 10% 50%, #FFFFFF 0%, #FCF9F2 50%, #F4ECE0 100%) !important;
+    border: 1.5px solid #143322 !important;
+    box-shadow: 0 4px 18px rgba(201, 162, 39, 0.12), inset 0 0 0 2px #FAF6ED !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .seal-inner-ring {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 0 !important;
+    gap: 16px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .seal-top-badge {
+    margin-bottom: 2px !important;
+    align-self: flex-start !important;
+    font-size: 0.65rem !important;
+  }
+
+  .seal-icon-emblem {
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+  }
+
+  .seal-icon-emblem svg {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .seal-text-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    flex-grow: 1 !important;
+  }
+
+  .seal-title {
+    font-size: 0.98rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 2px !important;
+    text-align: left !important;
+  }
+
+  .seal-desc {
+    max-width: 100% !important;
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+  }
+
+  .seal-stars {
+    margin-top: 3px !important;
+    font-size: 0.68rem !important;
+    align-self: flex-start !important;
+  }
+}
+
+/* --- ITEM 2: MOBILE HEADER CAPSULE SHAPE, FIT & COLORS (image_a35ac0.png) --- */
+@media (max-width: 960px) {
+  .site-header.liquid-glass.compact-glass {
+    position: fixed !important;
+    top: 10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 20px) !important;
+    max-width: 480px !important;
+    height: 52px !important;
+    border-radius: 50px !important;
+    padding: 6px 14px !important;
+    background: rgba(14, 36, 25, 0.94) !important; /* Deep forest green sanctuary glass */
+    backdrop-filter: blur(24px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+    border: 1.5px solid rgba(223, 191, 82, 0.35) !important; /* Luxury gold accent border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    z-index: 1000 !important;
+    box-sizing: border-box !important;
+  }
+
+  .site-header.compact-glass .nav-container {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .site-header.compact-glass .brand-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+    min-width: 0 !important;
+  }
+
+  .site-header.compact-glass .brand-emblem-wrap {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    border: 1.5px solid #DFBF52 !important;
+    background: #FFFFFF !important;
+    flex-shrink: 0 !important;
+  }
+
+  .site-header.compact-glass .brand-name {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+  }
+
+  .site-header.compact-glass .brand-name-part1 {
+    color: #FFFFFF !important;
+  }
+
+  .site-header.compact-glass .brand-name-part2 {
+    color: #4ADE80 !important;
+  }
+
+  .site-header.compact-glass .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Compact Luxury Gold Pill Button */
+  .site-header.compact-glass .btn-header-cta {
+    background: linear-gradient(135deg, #DFBF52 0%, #C9A227 100%) !important;
+    color: #143322 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px !important;
+    padding: 6px 14px !important;
+    border-radius: 50px !important;
+    border: none !important;
+    box-shadow: 0 2px 10px rgba(201, 162, 39, 0.35) !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+  }
+
+  /* Refined Round Hamburger Button with Clean Margin */
+  .mobile-toggle {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(223, 191, 82, 0.3) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+  }
+
+  .mobile-toggle .hamburger-bar {
+    width: 15px !important;
+    height: 2px !important;
+    background: #DFBF52 !important; /* Gold bars */
+    border-radius: 2px !important;
+    margin: 0 !important;
+  }
+}
+
+/* --- ITEM 3: HERO DUAL BUTTONS RESIZE & OVERLAP FIX ON MOBILE (image_a3acf4.png) --- */
+@media (max-width: 768px) {
+  .hero-stationary-actions-wrap {
+    bottom: 84px !important; /* Ample clearance above floating widget */
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
+
+  .hero-dual-cta {
+    display: flex !important;
+    flex-direction: row !important; /* Neat side-by-side layout */
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+
+  .hero-dual-cta .btn,
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    flex: 1 1 0 !important;
+    padding: 10px 14px !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: 42px !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn-hero-primary {
+    background: #143322 !important;
+    border: 1.5px solid rgba(223, 191, 82, 0.5) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .btn-hero-secondary {
+    background: rgba(14, 36, 25, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #FFFFFF !important;
+  }
+}
+
+/* --- ITEM 4: DYNAMIC SCROLL COLLAPSE & EXPAND FOR NALLAYIL CARE (image_a3b05d.png) --- */
+.nallayil-care-trigger {
+  transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+.care-trigger-text {
+  transition: max-width 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              transform 0.38s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  max-width: 160px;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* When scrolling: Collapsed into compact circle with microphone/headset icon! */
+.nallayil-care-trigger.is-scrolling {
+  padding: 8px !important;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  gap: 0 !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+  border-color: #DFBF52 !important;
+}
+
+.nallayil-care-trigger.is-scrolling .care-trigger-text {
+  max-width: 0 !important;
+  opacity: 0 !important;
+  transform: translateX(12px) !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nallayil-care-trigger.is-scrolling .care-headset-icon {
+  width: 32px !important;
+  height: 32px !important;
+  background: transparent !important;
+  font-size: 1.25rem !important;
+  color: #DFBF52 !important; /* Gold glowing icon when scrolling */
+}

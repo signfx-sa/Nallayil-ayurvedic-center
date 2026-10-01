@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookingFieldsSync();
   initPageBannersSync();
   initJournalCategoryFilters();
+  initCareScrollCollapse();
   initBookingTreatmentAutoFilter();
 
   // Listen for admin changes via custom events
