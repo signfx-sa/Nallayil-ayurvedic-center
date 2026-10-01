@@ -121,7 +121,7 @@
           </span>
         </div>
         <div class="admin-header-actions">
-          <button type="button" class="btn-publish-live" onclick="handlePublishToWebpage()">
+          <button type="button" class="btn-publish-live" onclick="openPublishModal()">
             <i class="fas fa-rocket"></i> Publish to Webpage
           </button>
           <button type="button" class="btn btn-outline-light" onclick="adminLogout()" style="padding: 8px 16px; font-size: 0.85rem; border-radius: 50px; background: transparent; border: 1px solid #d8dfd5; cursor: pointer;">
@@ -924,5 +924,139 @@
 
   <script src="js/data.js"></script>
   <script src="js/admin.js"></script>
+
+  <!-- ======================================================================
+       PUBLISH TO WEBPAGE & GITHUB MODAL
+       ====================================================================== -->
+  <div class="admin-modal-overlay" id="adminPublishModal">
+    <div class="admin-modal-card">
+      <button type="button" class="modal-close-btn" onclick="closePublishModal()" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:8px;">
+        <div style="width:44px; height:44px; border-radius:12px; background:#EAF5ED; color:#087A24; display:flex; align-items:center; justify-content:center; font-size:1.35rem; flex-shrink:0;">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div>
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.45rem; color:#143322; margin:0;">Publish Changes to Website</h3>
+          <p style="font-size:0.85rem; color:#5D7061; margin:0;">Commit live updates to your GitHub Pages hosting repository</p>
+        </div>
+      </div>
+
+      <div class="publish-method-tabs">
+        <button type="button" class="publish-tab-btn active" onclick="switchPublishTab('github')" id="tabBtnGitHub">
+          <i class="fab fa-github"></i> Direct GitHub Sync
+        </button>
+        <button type="button" class="publish-tab-btn" onclick="switchPublishTab('download')" id="tabBtnDownload">
+          <i class="fas fa-file-download"></i> Download data.js File
+        </button>
+        <button type="button" class="publish-tab-btn" onclick="switchPublishTab('local')" id="tabBtnLocal">
+          <i class="fas fa-laptop"></i> Local Browser Only
+        </button>
+      </div>
+
+      <!-- TAB 1: GITHUB API DIRECT COMMIT -->
+      <div class="publish-tab-content active" id="tabContentGitHub">
+        <p style="font-size:0.88rem; color:#4A5D4E; margin-bottom:16px; line-height:1.5;">
+          Push your latest treatments, articles, doctors, hero slides, and page banners directly to your GitHub repository. Once committed, GitHub Pages will automatically rebuild and deploy your changes worldwide in <strong>~30 to 60 seconds</strong>.
+        </p>
+
+        <form onsubmit="event.preventDefault(); handleGitHubDirectPush();">
+          <div class="form-group" style="margin-bottom:14px;">
+            <label class="form-label">GitHub Repository (Owner / Repository Name) *</label>
+            <input type="text" id="ghRepoInput" class="form-control" placeholder="e.g. your-username/nallayil-website" required>
+            <small style="color:#666; font-size:0.75rem;">Example: <code>kmunshidk/nallayil-website</code></small>
+          </div>
+
+          <div class="form-row form-row-2" style="margin-bottom:14px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Target Branch *</label>
+              <input type="text" id="ghBranchInput" class="form-control" value="main" placeholder="main" required>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">File Path in Repository *</label>
+              <input type="text" id="ghPathInput" class="form-control" value="site/js/data.js" placeholder="site/js/data.js or js/data.js" required>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:16px;">
+            <label class="form-label">GitHub Personal Access Token (PAT) *</label>
+            <div style="position:relative;">
+              <input type="password" id="ghTokenInput" class="form-control" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" required style="padding-right:45px;">
+              <button type="button" onclick="toggleTokenVisibility()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:#666; cursor:pointer;" aria-label="Toggle Token Visibility">
+                <i class="fas fa-eye" id="ghTokenToggleIcon"></i>
+              </button>
+            </div>
+            <small style="color:#666; font-size:0.75rem;">Stored securely in this browser's localStorage only. Never shared or sent to any third party.</small>
+          </div>
+
+          <details class="github-guide-box">
+            <summary><i class="fas fa-question-circle"></i> How to generate a free GitHub Token (1 minute guide)</summary>
+            <ol>
+              <li>Go to <strong>github.com</strong> and click your profile icon (top right) &rarr; <strong>Settings</strong>.</li>
+              <li>Scroll down to the bottom of the left sidebar &rarr; click <strong>Developer Settings</strong>.</li>
+              <li>Click <strong>Personal access tokens</strong> &rarr; <strong>Tokens (classic)</strong>.</li>
+              <li>Click <strong>Generate new token (classic)</strong>. Note: <em>Nallayil Admin</em>.</li>
+              <li>Check the <strong><code>repo</code></strong> scope box (Full control of private/public repositories).</li>
+              <li>Click <strong>Generate token</strong> at the bottom, copy the token (starts with <code>ghp_</code>), and paste it above!</li>
+            </ol>
+          </details>
+
+          <div class="sync-status-indicator" id="ghSyncStatusBox"></div>
+
+          <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+            <button type="button" class="btn btn-outline" onclick="closePublishModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="ghPushBtn">
+              <i class="fab fa-github"></i> Commit &amp; Publish to GitHub
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- TAB 2: ONE-CLICK FILE DOWNLOAD -->
+      <div class="publish-tab-content" id="tabContentDownload">
+        <div style="background:#F9FAF8; border:1px solid #E2EAE0; border-radius:14px; padding:22px; text-align:center; margin-bottom:20px;">
+          <i class="fas fa-file-code" style="font-size:3rem; color:#087A24; margin-bottom:12px;"></i>
+          <h4 style="font-family:'Playfair Display',serif; font-size:1.25rem; color:#143322; margin-bottom:8px;">Download Updated data.js File</h4>
+          <p style="font-size:0.88rem; color:#556257; margin-bottom:18px; max-width:440px; margin-left:auto; margin-right:auto;">
+            If you do not want to use a GitHub Token, download this single file and upload it to your GitHub repository.
+          </p>
+          <button type="button" class="btn btn-primary" onclick="downloadUpdatedDataJs()" style="padding:12px 28px; font-size:0.95rem;">
+            <i class="fas fa-download"></i> Download data.js Now
+          </button>
+        </div>
+
+        <h4 style="font-size:0.95rem; color:#143322; margin-bottom:10px; font-weight:700;"><i class="fas fa-tasks"></i> How to update on GitHub (10 Seconds):</h4>
+        <ol style="font-size:0.86rem; color:#4A5D4E; line-height:1.7; margin-left:20px;">
+          <li>Open your repository on <strong>github.com</strong> in your browser.</li>
+          <li>Navigate into the <strong><code>js/</code></strong> (or <strong><code>site/js/</code></strong>) folder.</li>
+          <li>Click the <strong>Add file</strong> button (top right) &rarr; choose <strong>Upload files</strong>.</li>
+          <li>Drag &amp; drop the downloaded <code>data.js</code> file into the browser window.</li>
+          <li>Scroll down and click the green <strong>Commit changes</strong> button.</li>
+          <li><strong>All done!</strong> GitHub Pages will deploy automatically, and all visitors will see the updated content.</li>
+        </ol>
+
+        <div style="display:flex; justify-content:flex-end; margin-top:24px;">
+          <button type="button" class="btn btn-outline" onclick="closePublishModal()">Done</button>
+        </div>
+      </div>
+
+      <!-- TAB 3: LOCAL PREVIEW ONLY -->
+      <div class="publish-tab-content" id="tabContentLocal">
+        <p style="font-size:0.88rem; color:#4A5D4E; margin-bottom:18px; line-height:1.6;">
+          This saves all changes to this browser's <code>localStorage</code>. It is useful for testing and previewing changes on your own device before publishing to GitHub. Note that other visitors will NOT see these changes until you commit to GitHub.
+        </p>
+        <button type="button" class="btn btn-primary" onclick="handleLocalPublishOnly()">
+          <i class="fas fa-check-circle"></i> Save &amp; Preview in this Browser
+        </button>
+        <div style="display:flex; justify-content:flex-end; margin-top:24px;">
+          <button type="button" class="btn btn-outline" onclick="closePublishModal()">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>

@@ -369,6 +369,64 @@ const NALLAYIL_DATA = {
 
 };
 
+
+  /* --------------------------------------------------------------------------
+     EXPORT COMPLETE UPDATED data.js CODE (FOR GITHUB PAGES & HOSTING)
+     -------------------------------------------------------------------------- */
+  exportDataJsCode: function() {
+    const branches = (typeof NALLAYIL_DATA !== 'undefined' && NALLAYIL_DATA.branches) ? NALLAYIL_DATA.branches : [];
+    const doctors = this.getDoctors();
+    const treatments = this.getTreatments();
+    const articles = this.getArticles();
+    const heroSlides = this.getHeroSlides();
+    const pageBanners = this.getPageBanners();
+    const bookingTreatments = this.getBookingTreatments();
+    const offers = this.getOffers();
+    const gallery = this.getGallery();
+
+    const updatedData = {
+      branches: branches,
+      doctors: doctors,
+      treatments: treatments,
+      articles: articles,
+      heroSlides: heroSlides,
+      pageBanners: pageBanners,
+      bookingTreatments: bookingTreatments,
+      offers: offers,
+      initialGallery: gallery
+    };
+
+    const jsonStr = JSON.stringify(updatedData, null, 2);
+    
+    // Replace the NALLAYIL_DATA block in raw source
+    let source = window.NALLAYIL_DATA_SOURCE_RAW || '';
+    if (!source) {
+      // Construct fallback from current source
+      source = `/**
+ * Nallayil Ayurveda - Shared Data Store & LocalStorage Sync
+ * Auto-Generated from Nallayil Control Center
+ * Generated: ${new Date().toISOString()}
+ */
+
+const NALLAYIL_DATA = ${jsonStr};
+
+// Storage helper functions
+const NallayilStore = window.NallayilStore;
+
+// Export to window
+window.NALLAYIL_DATA = NALLAYIL_DATA;
+window.NallayilStore = NallayilStore;
+`;
+    } else {
+      source = source.replace(/const NALLAYIL_DATA = \{[\s\S]*?
+\};
+
+\/\/ Storage helper functions/, `const NALLAYIL_DATA = ${jsonStr};\n\n// Storage helper functions`);
+    }
+
+    return source;
+  },
+
 // Storage helper functions
 const NallayilStore = {
   getGallery: function() {
@@ -597,7 +655,7 @@ const NallayilStore = {
         },
         {
           id: "slide-2",
-          title: "ആയുർവേദ പാരമ്പര്യം.<br><span class=\"hero-heading-accent\">വിശ്വാസ്യതയുടെ തനിമ.</span>",
+          title: "ആയുർവേദ പാരമ്പര്യം.<br><span class=\"hero-heading-accent malayalam-accent-bold\">വിശ്വാസ്യതയുടെ തനിമ.</span>",
           subtext: "നല്ലയിൽ ആയുർവേദ ഹെറിറ്റേജ് ഹോസ്പിറ്റൽ & ആയുർ ഹോം • മഞ്ചേരി",
           image: "images/slider-2.jpg"
         }

@@ -1021,3 +1021,151 @@ select.form-control, select.admin-select {
   color: #FEFAE0;
   margin: 0;
 }
+
+/* --------------------------------------------------------------------------
+   GITHUB PUBLISH MODAL & SYNC DIALOG STYLES
+   -------------------------------------------------------------------------- */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 29, 20, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: adminFadeIn 0.2s ease-out;
+}
+
+.admin-modal-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  max-width: 620px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--admin-border);
+  padding: 32px 36px;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #F4F7F4;
+  border: 1px solid #D5DFD3;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--admin-primary);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #DC2626;
+  border-color: #DC2626;
+  color: #FFFFFF;
+}
+
+.publish-method-tabs {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0 24px;
+  border-bottom: 1.5px solid #EEF2ED;
+  padding-bottom: 12px;
+}
+
+.publish-tab-btn {
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  border: 1.5px solid transparent;
+  background: #F4F7F4;
+  color: #4A5D4E;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.publish-tab-btn.active {
+  background: var(--admin-primary);
+  color: #FFFFFF;
+  border-color: var(--admin-primary);
+  box-shadow: 0 4px 12px rgba(20, 51, 34, 0.15);
+}
+
+.publish-tab-content {
+  display: none;
+}
+
+.publish-tab-content.active {
+  display: block;
+}
+
+.github-guide-box {
+  background: #F9FAF8;
+  border: 1px solid #E2EAE0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.84rem;
+  color: #4A5D4E;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+.github-guide-box summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--admin-primary);
+  user-select: none;
+}
+
+.github-guide-box ol {
+  margin: 10px 0 0 18px;
+  padding: 0;
+}
+
+.sync-status-indicator {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: none;
+}
+
+.sync-status-indicator.loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #EBF5FF;
+  color: #0284C7;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+
+.sync-status-indicator.success {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #EAF5ED;
+  color: #087A24;
+  border: 1px solid rgba(8, 122, 36, 0.25);
+}
+
+.sync-status-indicator.error {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FEE2E2;
+  color: #DC2626;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+}

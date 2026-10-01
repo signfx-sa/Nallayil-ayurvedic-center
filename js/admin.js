@@ -843,3 +843,268 @@ function showAdminMiniToast(message) {
     setTimeout(() => toast.remove(), 400);
   }, 2200);
 }
+
+
+// --------------------------------------------------------------------------
+// PUBLISH MODAL & GITHUB INTEGRATION
+// --------------------------------------------------------------------------
+function openPublishModal() {
+  const modal = document.getElementById('adminPublishModal');
+  if (!modal) return;
+
+  // Prepopulate saved GitHub credentials if available
+  const savedRepo = localStorage.getItem('nallayil_gh_repo') || '';
+  const savedBranch = localStorage.getItem('nallayil_gh_branch') || 'main';
+  const savedPath = localStorage.getItem('nallayil_gh_path') || 'site/js/data.js';
+  const savedToken = localStorage.getItem('nallayil_gh_token') || '';
+
+  const rInput = document.getElementById('ghRepoInput');
+  const bInput = document.getElementById('ghBranchInput');
+  const pInput = document.getElementById('ghPathInput');
+  const tInput = document.getElementById('ghTokenInput');
+
+  if (rInput && savedRepo) rInput.value = savedRepo;
+  if (bInput && savedBranch) bInput.value = savedBranch;
+  if (pInput && savedPath) pInput.value = savedPath;
+  if (tInput && savedToken) tInput.value = savedToken;
+
+  const statusBox = document.getElementById('ghSyncStatusBox');
+  if (statusBox) statusBox.style.display = 'none';
+
+  modal.style.display = 'flex';
+}
+
+function closePublishModal() {
+  const modal = document.getElementById('adminPublishModal');
+  if (modal) modal.style.display = 'none';
+}
+
+function switchPublishTab(tabName) {
+  const tabs = ['github', 'download', 'local'];
+  tabs.forEach(t => {
+    const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+    const content = document.getElementById(`tabContent${t.charAt(0).toUpperCase() + t.slice(1)}`);
+    if (btn) btn.classList.toggle('active', t === tabName);
+    if (content) content.classList.toggle('active', t === tabName);
+  });
+}
+
+function toggleTokenVisibility() {
+  const input = document.getElementById('ghTokenInput');
+  const icon = document.getElementById('ghTokenToggleIcon');
+  if (!input) return;
+  if (input.type === 'password') {
+    input.type = 'text';
+    if (icon) icon.className = 'fas fa-eye-slash';
+  } else {
+    input.type = 'password';
+    if (icon) icon.className = 'fas fa-eye';
+  }
+}
+
+async function generateCompleteDataJs() {
+  // Try fetching current template
+  let template = '';
+  try {
+    const res = await fetch('js/data.js');
+    if (res.ok) template = await res.text();
+  } catch(e) {}
+
+  if (!template) {
+    try {
+      const res = await fetch('../js/data.js');
+      if (res.ok) template = await res.text();
+    } catch(e) {}
+  }
+
+  const branches = (typeof NALLAYIL_DATA !== 'undefined' && NALLAYIL_DATA.branches) ? NALLAYIL_DATA.branches : [];
+  const doctors = NallayilStore.getDoctors() || [];
+  const treatments = NallayilStore.getTreatments() || [];
+  const articles = NallayilStore.getArticles() || [];
+  const heroSlides = NallayilStore.getHeroSlides() || [];
+  const pageBanners = NallayilStore.getPageBanners() || {};
+  const bookingTreatments = NallayilStore.getBookingTreatments() || [];
+  const offers = NallayilStore.getOffers() || [];
+  const gallery = NallayilStore.getGallery() || [];
+
+  const updatedData = {
+    branches: branches,
+    doctors: doctors,
+    treatments: treatments,
+    articles: articles,
+    heroSlides: heroSlides,
+    pageBanners: pageBanners,
+    bookingTreatments: bookingTreatments,
+    offers: offers,
+    initialGallery: gallery
+  };
+
+  const jsonStr = JSON.stringify(updatedData, null, 2);
+
+  if (template && template.includes('const NALLAYIL_DATA = {')) {
+    return template.replace(/const NALLAYIL_DATA = \{[\s\S]*?
+\};
+
+\/\/ Storage helper functions/, `const NALLAYIL_DATA = ${jsonStr};\n\n// Storage helper functions`);
+  }
+
+  return `/**
+ * Nallayil Ayurveda - Shared Data Store & LocalStorage Sync
+ * Auto-Generated from Nallayil Control Center
+ * Last Updated: ${new Date().toISOString()}
+ */
+
+const NALLAYIL_DATA = ${jsonStr};
+
+// Export to window
+window.NALLAYIL_DATA = NALLAYIL_DATA;
+`;
+}
+
+function utf8ToBase64(str) {
+  return window.btoa(unescape(encodeURIComponent(str)));
+}
+
+async function handleGitHubDirectPush() {
+  const repo = document.getElementById('ghRepoInput')?.value.trim();
+  const branch = document.getElementById('ghBranchInput')?.value.trim() || 'main';
+  let path = document.getElementById('ghPathInput')?.value.trim() || 'site/js/data.js';
+  const token = document.getElementById('ghTokenInput')?.value.trim();
+  const statusBox = document.getElementById('ghSyncStatusBox');
+  const btn = document.getElementById('ghPushBtn');
+
+  if (!repo || !token) {
+    alert('Please provide your GitHub repository and Personal Access Token.');
+    return;
+  }
+
+  // Save for future convenience
+  localStorage.setItem('nallayil_gh_repo', repo);
+  localStorage.setItem('nallayil_gh_branch', branch);
+  localStorage.setItem('nallayil_gh_path', path);
+  localStorage.setItem('nallayil_gh_token', token);
+
+  if (statusBox) {
+    statusBox.className = 'sync-status-indicator loading';
+    statusBox.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Connecting to GitHub API and verifying repository...</span>';
+    statusBox.style.display = 'flex';
+  }
+  if (btn) btn.disabled = true;
+
+  try {
+    // 1. Check existing file to obtain SHA
+    let fileSha = null;
+    let checkUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
+    let checkRes = await fetch(checkUrl, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+
+    // If 404 and path started with site/, try without site/ prefix
+    if (!checkRes.ok && path.startsWith('site/')) {
+      const altPath = path.replace(/^site\//, '');
+      const altUrl = `https://api.github.com/repos/${repo}/contents/${altPath}?ref=${branch}`;
+      const altRes = await fetch(altUrl, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      if (altRes.ok) {
+        path = altPath;
+        checkRes = altRes;
+        document.getElementById('ghPathInput').value = path;
+        localStorage.setItem('nallayil_gh_path', path);
+      }
+    }
+
+    if (checkRes.ok) {
+      const checkJson = await checkRes.json();
+      fileSha = checkJson.sha;
+    } else if (checkRes.status === 401) {
+      throw new Error('Authentication failed (401). Please verify your GitHub Personal Access Token has "repo" permissions.');
+    } else if (checkRes.status === 404 && checkRes.statusText === 'Not Found') {
+      // File does not exist yet; will create new
+      fileSha = null;
+    }
+
+    if (statusBox) {
+      statusBox.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Packaging updated data and pushing commit to GitHub...</span>';
+    }
+
+    // 2. Generate updated data.js
+    const dataJsContent = await generateCompleteDataJs();
+    const base64Content = utf8ToBase64(dataJsContent);
+
+    // 3. Commit to GitHub
+    const putUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+    const payload = {
+      message: `Update hospital content via Nallayil Control Center [${new Date().toLocaleTimeString()}]`,
+      content: base64Content,
+      branch: branch
+    };
+    if (fileSha) {
+      payload.sha = fileSha;
+    }
+
+    const putRes = await fetch(putUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!putRes.ok) {
+      const errJson = await putRes.json().catch(() => ({}));
+      throw new Error(errJson.message || `GitHub returned status ${putRes.status}`);
+    }
+
+    // Also update local timestamp and store
+    const timeStr = NallayilStore.publishAll();
+    const timeSpan = document.getElementById('lastPublishedTime');
+    if (timeSpan) timeSpan.textContent = timeStr;
+
+    if (statusBox) {
+      statusBox.className = 'sync-status-indicator success';
+      statusBox.innerHTML = '<i class="fas fa-check-circle" style="font-size:1.3rem;"></i> <div><strong>Published to GitHub Successfully!</strong><br><small>GitHub Pages is now building. All visitors worldwide will see the updates in ~30 to 45 seconds.</small></div>';
+    }
+
+  } catch (error) {
+    if (statusBox) {
+      statusBox.className = 'sync-status-indicator error';
+      statusBox.innerHTML = `<i class="fas fa-exclamation-triangle" style="font-size:1.3rem;"></i> <div><strong>Publishing Failed:</strong> ${error.message}</div>`;
+    }
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+async function downloadUpdatedDataJs() {
+  const content = await generateCompleteDataJs();
+  const blob = new Blob([content], { type: 'application/javascript;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'data.js';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showAdminMiniToast('data.js downloaded! Drag and drop it into your GitHub repository.');
+}
+
+function handleLocalPublishOnly() {
+  if (typeof NallayilStore === 'undefined') return;
+  const timeStr = NallayilStore.publishAll();
+  const timeSpan = document.getElementById('lastPublishedTime');
+  if (timeSpan) timeSpan.textContent = timeStr;
+
+  closePublishModal();
+  showAdminMiniToast('Changes saved to this browser! (Remember to commit to GitHub for public visitors).');
+}
