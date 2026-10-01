@@ -9213,48 +9213,88 @@ body, p, span, a, input, button, select, textarea, .nav-link, .page-tag, .btn {
   }
 }
 
-/* --- ITEM 2: MOBILE HEADER CAPSULE SHAPE, FIT & COLORS (image_a35ac0.png) --- */
+/* --- ITEM 2: MOBILE HEADER CAPSULE SHAPE, FIT, BOOK BUTTON & THREE LINES MENU --- */
+.btn-header-cta .btn-text-mobile {
+  display: none !important;
+}
+.btn-header-cta .btn-text-desktop {
+  display: inline !important;
+}
+
 @media (max-width: 960px) {
+  /* Desktop text hidden, mobile short text 'Book' shown */
+  .btn-header-cta .btn-text-desktop {
+    display: none !important;
+  }
+  .btn-header-cta .btn-text-mobile {
+    display: inline !important;
+  }
+
+  /* 1. Header Capsule Collapsed State */
   .site-header.liquid-glass.compact-glass {
     position: fixed !important;
     top: 10px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: calc(100% - 20px) !important;
-    max-width: 480px !important;
-    height: 52px !important;
+    max-width: 440px !important;
+    height: 50px !important;
+    max-height: 50px !important;
     border-radius: 50px !important;
-    padding: 6px 14px !important;
+    padding: 6px 12px !important;
     background: rgba(14, 36, 25, 0.94) !important; /* Deep forest green sanctuary glass */
     backdrop-filter: blur(24px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
     border: 1.5px solid rgba(223, 191, 82, 0.35) !important; /* Luxury gold accent border */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
     z-index: 1000 !important;
+    overflow: hidden !important;
     box-sizing: border-box !important;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-radius 0.35s ease,
+                background-color 0.35s ease,
+                box-shadow 0.35s ease !important;
   }
 
+  /* 2. Header Expanded State when 3 lines menu is clicked: Expands fully! */
+  .site-header.liquid-glass.compact-glass.is-expanded {
+    height: auto !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 22px !important;
+    background: rgba(14, 36, 25, 0.98) !important;
+    border: 1.5px solid rgba(223, 191, 82, 0.5) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(223, 191, 82, 0.3) !important;
+    padding: 8px 12px 16px !important;
+  }
+
+  /* 3. Top Row Container */
   .site-header.compact-glass .nav-container {
-    height: 100% !important;
+    height: 38px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 8px !important;
     width: 100% !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
 
+  /* 4. Left Brand Logo */
   .site-header.compact-glass .brand-logo {
     display: flex !important;
     align-items: center !important;
-    gap: 8px !important;
-    flex-shrink: 0 !important;
+    gap: 6px !important;
+    flex-shrink: 1 !important;
     min-width: 0 !important;
+    text-decoration: none !important;
   }
 
   .site-header.compact-glass .brand-emblem-wrap {
-    width: 32px !important;
-    height: 32px !important;
+    width: 28px !important;
+    height: 28px !important;
     border-radius: 50% !important;
     border: 1.5px solid #DFBF52 !important;
     background: #FFFFFF !important;
@@ -9266,9 +9306,9 @@ body, p, span, a, input, button, select, textarea, .nav-link, .page-tag, .btn {
     flex-direction: row !important;
     align-items: baseline !important;
     gap: 4px !important;
-    font-size: 0.92rem !important;
+    font-size: 0.82rem !important;
     font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
+    letter-spacing: 0.4px !important;
     white-space: nowrap !important;
   }
 
@@ -9280,53 +9320,217 @@ body, p, span, a, input, button, select, textarea, .nav-link, .page-tag, .btn {
     color: #4ADE80 !important;
   }
 
+  /* 5. Right Action Buttons: 'Book' + 3 lines hamburger */
   .site-header.compact-glass .nav-actions {
     display: flex !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
     flex-shrink: 0 !important;
+    margin-left: auto !important;
   }
 
-  /* Compact Luxury Gold Pill Button */
-  .site-header.compact-glass .btn-header-cta {
+  /* Shortened 'Book' Luxury Gold Pill Button */
+  .site-header.compact-glass .btn-header-cta,
+  .site-header.liquid-glass.compact-glass:not(.scrolled) .btn-header-cta,
+  .site-header.liquid-glass.compact-glass.scrolled .btn-header-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: linear-gradient(135deg, #DFBF52 0%, #C9A227 100%) !important;
     color: #143322 !important;
     font-family: 'Inter', sans-serif !important;
     font-size: 11.5px !important;
     font-weight: 700 !important;
     letter-spacing: 0.3px !important;
-    padding: 6px 14px !important;
+    padding: 5px 12px !important;
+    height: 30px !important;
     border-radius: 50px !important;
     border: none !important;
-    box-shadow: 0 2px 10px rgba(201, 162, 39, 0.35) !important;
+    box-shadow: 0 2px 8px rgba(201, 162, 39, 0.3) !important;
     white-space: nowrap !important;
     line-height: 1 !important;
+    flex-shrink: 0 !important;
+    text-decoration: none !important;
   }
 
-  /* Refined Round Hamburger Button with Clean Margin */
+  /* 6. Three Menu Lines Toggle Placed Strictly INSIDE the Capsule */
   .mobile-toggle {
-    width: 34px !important;
-    height: 34px !important;
-    border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(223, 191, 82, 0.3) !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
     justify-content: center !important;
-    gap: 4px !important;
+    align-items: center !important;
+    gap: 3.5px !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(223, 191, 82, 0.45) !important;
     padding: 0 !important;
     margin: 0 !important;
     flex-shrink: 0 !important;
     cursor: pointer !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease !important;
   }
 
   .mobile-toggle .hamburger-bar {
-    width: 15px !important;
+    display: block !important;
+    width: 16px !important;
     height: 2px !important;
-    background: #DFBF52 !important; /* Gold bars */
+    pointer-events: none !important;
+    background: #DFBF52 !important; /* Bright Luxury Gold 3 lines */
     border-radius: 2px !important;
     margin: 0 !important;
+    transition: transform 0.28s cubic-bezier(0.2, 1, 0.3, 1),
+                opacity 0.2s ease,
+                background-color 0.25s ease !important;
+  }
+
+  /* Active State: 3 lines morph to Gold X when menu is open */
+  .mobile-toggle.is-active {
+    background: rgba(223, 191, 82, 0.22) !important;
+    border-color: #DFBF52 !important;
+  }
+
+  .mobile-toggle.is-active .bar-1 {
+    transform: translateY(5.5px) rotate(45deg) !important;
+  }
+
+  .mobile-toggle.is-active .bar-2 {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+
+  .mobile-toggle.is-active .bar-3 {
+    transform: translateY(-5.5px) rotate(-45deg) !important;
+  }
+
+  /* 7. Integrated Expanding Menu Content (Showing when clicked) */
+  .site-header.compact-glass .mobile-expanded-menu,
+  #mobileExpandedMenu {
+    display: none !important;
+    opacity: 0 !important;
+    transform: translateY(-8px) !important;
+    transition: opacity 0.28s ease, transform 0.28s ease !important;
+    width: 100% !important;
+  }
+
+  .site-header.compact-glass.is-expanded .mobile-expanded-menu,
+  .site-header.is-expanded #mobileExpandedMenu {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+    margin-top: 6px !important;
+  }
+
+  .mobile-expanded-divider {
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(223, 191, 82, 0.35), transparent) !important;
+    margin: 6px 0 8px !important;
+  }
+
+  .mobile-expanded-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+    width: 100% !important;
+  }
+
+  /* Menu Navigation Links */
+  .mobile-nav-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 9px 12px !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    color: #F9F8F5 !important;
+    text-decoration: none !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    transition: all 0.22s ease !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-nav-link span {
+    color: #F9F8F5 !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+  }
+
+  .mobile-nav-link i {
+    font-size: 0.72rem !important;
+    color: #DFBF52 !important;
+    transition: transform 0.22s ease !important;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link:active,
+  .mobile-nav-link.active {
+    background: rgba(223, 191, 82, 0.16) !important;
+    border-color: rgba(223, 191, 82, 0.45) !important;
+    color: #DFBF52 !important;
+    transform: translateX(3px) !important;
+  }
+
+  .mobile-nav-link:hover span,
+  .mobile-nav-link.active span {
+    color: #DFBF52 !important;
+  }
+
+  .mobile-nav-link:hover i,
+  .mobile-nav-link.active i {
+    color: #4ADE80 !important;
+    transform: translateX(3px) !important;
+  }
+
+  /* Menu Action Buttons (WhatsApp & Call) */
+  .mobile-expanded-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    margin-top: 10px !important;
+    padding-top: 8px !important;
+    border-top: 1px solid rgba(223, 191, 82, 0.2) !important;
+    width: 100% !important;
+  }
+
+  .mobile-wa-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 9px 14px !important;
+    background: #1B8A44 !important;
+    color: #FFFFFF !important;
+    border-radius: 30px !important;
+    font-size: 0.86rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-call-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 9px 14px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #DFBF52 !important;
+    border: 1px solid rgba(223, 191, 82, 0.35) !important;
+    border-radius: 30px !important;
+    font-size: 0.86rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
   }
 }
 

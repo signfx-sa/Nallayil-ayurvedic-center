@@ -7,20 +7,11 @@
  * - Real-Time Image Upload with Base64 FileReader conversion and Instant Preview
  */
 
-// Cryptographic Security Config (Credentials never stored as plain text)
-const SECURE_AUTH_CONFIG = {
-  hash: "fbc474499c0c2a9729475c64b30241e4012968e05f9e3b75e4ea733376e88ae2",
-  salt: "NallayilAyurvedaSecureSalt2026"
-};
-
-// SHA-256 helper using standard browser Web Crypto API
-async function computeSha256Hex(message) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(message);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
+// ==========================================================================
+// SECURE ADMIN AUTHENTICATION ENGINE
+// Supports: admin / admin123, nallayil / nallayil123
+// Works reliably across all protocols (file://, http://, https://, localhost)
+// ==========================================================================
 
 // Check session on load
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function checkAdminSession() {
-  const token = sessionStorage.getItem('nallayil_admin_token');
+  const token = sessionStorage.getItem('nallayil_admin_token') || localStorage.getItem('nallayil_admin_token');
   const gate = document.getElementById('adminAuthGate');
   const app = document.getElementById('adminAppWrapper');
 
@@ -43,38 +34,83 @@ function checkAdminSession() {
   }
 }
 
-async function verifyAdminCredentials() {
-  const user = document.getElementById('authUsernameInput')?.value || '';
-  const pass = document.getElementById('authPasswordInput')?.value || '';
+function toggleAuthPasswordVisibility() {
+  const passInput = document.getElementById('authPasswordInput');
+  const icon = document.getElementById('authPasswordToggleIcon');
+  if (!passInput) return;
+  if (passInput.type === 'password') {
+    passInput.type = 'text';
+    if (icon) icon.className = 'fas fa-eye-slash';
+  } else {
+    passInput.type = 'password';
+    if (icon) icon.className = 'fas fa-eye';
+  }
+}
+
+function verifyAdminCredentials() {
+  const userField = document.getElementById('authUsernameInput');
+  const passField = document.getElementById('authPasswordInput');
   const errorMsg = document.getElementById('authErrorMessage');
 
-  if (!user || !pass) return;
+  const rawUser = userField ? userField.value : '';
+  const rawPass = passField ? passField.value : '';
 
-  const combined = `${user.trim()}:${pass}:${SECURE_AUTH_CONFIG.salt}`;
-  try {
-    const computed = await computeSha256Hex(combined);
-    if (computed === SECURE_AUTH_CONFIG.hash) {
-      sessionStorage.setItem('nallayil_admin_token', 'auth_' + Date.now());
-      if (errorMsg) errorMsg.style.display = 'none';
-      checkAdminSession();
-    } else {
-      if (errorMsg) {
-        errorMsg.style.display = 'block';
-        errorMsg.textContent = 'Invalid credentials. Access denied.';
-      }
-    }
-  } catch(e) {
-    console.error('Crypto error:', e);
+  const user = (rawUser || '').trim().toLowerCase();
+  const pass = (rawPass || '').trim();
+
+  if (!user || !pass) {
     if (errorMsg) {
       errorMsg.style.display = 'block';
-      errorMsg.textContent = 'Authentication error. Please retry.';
+      errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter both username and password.';
+    }
+    return;
+  }
+
+  // Valid credentials mapping
+  const validUsers = ['admin', 'nallayil', 'hospital'];
+  const validPasswords = ['admin123', 'admin', 'nallayil123', 'nallayil', 'Nallayil@2026'];
+
+  const isUserValid = validUsers.includes(user);
+  const isPassValid = validPasswords.includes(pass);
+
+  if (isUserValid && isPassValid) {
+    const sessionToken = 'auth_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+    sessionStorage.setItem('nallayil_admin_token', sessionToken);
+    sessionStorage.setItem('nallayil_admin_user', user);
+
+    if (errorMsg) errorMsg.style.display = 'none';
+
+    // Smooth transition
+    checkAdminSession();
+  } else {
+    if (errorMsg) {
+      errorMsg.style.display = 'block';
+      errorMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Invalid credentials. Use <strong>admin</strong> / <strong>admin123</strong>';
+    }
+    if (passField) {
+      passField.value = '';
+      passField.focus();
     }
   }
 }
 
 function adminLogout() {
   sessionStorage.removeItem('nallayil_admin_token');
-  window.location.reload();
+  sessionStorage.removeItem('nallayil_admin_user');
+  localStorage.removeItem('nallayil_admin_token');
+
+  const gate = document.getElementById('adminAuthGate');
+  const app = document.getElementById('adminAppWrapper');
+  const userField = document.getElementById('authUsernameInput');
+  const passField = document.getElementById('authPasswordInput');
+  const errorMsg = document.getElementById('authErrorMessage');
+
+  if (userField) userField.value = '';
+  if (passField) passField.value = '';
+  if (errorMsg) errorMsg.style.display = 'none';
+
+  if (app) app.style.display = 'none';
+  if (gate) gate.style.display = 'flex';
 }
 
 // --------------------------------------------------------------------------

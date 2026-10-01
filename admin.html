@@ -30,17 +30,27 @@
       <form id="adminAuthForm" onsubmit="event.preventDefault(); verifyAdminCredentials();">
         <div class="auth-input-group">
           <label class="auth-label" for="authUsernameInput">Username</label>
-          <input type="text" id="authUsernameInput" class="auth-input" placeholder="Enter username" autocomplete="username" required>
+          <input type="text" id="authUsernameInput" class="auth-input" placeholder="Enter username (e.g. admin)" autocomplete="username" required autofocus>
         </div>
         <div class="auth-input-group">
           <label class="auth-label" for="authPasswordInput">Password</label>
-          <input type="password" id="authPasswordInput" class="auth-input" placeholder="Enter password" autocomplete="current-password" required>
+          <div style="position:relative; width:100%;">
+            <input type="password" id="authPasswordInput" class="auth-input" placeholder="Enter password" autocomplete="current-password" required style="padding-right:45px;">
+            <button type="button" onclick="toggleAuthPasswordVisibility()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:#4E6354; cursor:pointer; font-size:1rem; padding:4px;" aria-label="Toggle Password Visibility">
+              <i class="fas fa-eye" id="authPasswordToggleIcon"></i>
+            </button>
+          </div>
         </div>
-        <button type="submit" class="auth-btn">
+        <button type="submit" class="auth-btn" id="adminSignInBtn">
           <i class="fas fa-lock-open" style="margin-right:8px;"></i> Sign In to Control Center
         </button>
-        <div class="auth-error" id="authErrorMessage">
+        <div class="auth-error" id="authErrorMessage" style="display:none; margin-top:12px; padding:10px; border-radius:8px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#DC2626; font-size:0.85rem;">
           <i class="fas fa-exclamation-circle"></i> Invalid credentials. Access denied.
+        </div>
+        <div class="auth-hint-box" style="margin-top:20px; padding:12px 14px; background:rgba(20,51,34,0.05); border:1px dashed rgba(20,51,34,0.25); border-radius:12px; font-size:0.82rem; color:#4E6354; text-align:center; line-height:1.45;">
+          <i class="fas fa-shield-alt" style="color:#C9A227; margin-right:5px;"></i>
+          <strong>Default Login:</strong><br>
+          Username: <span style="color:#143322; font-weight:700;">admin</span> &nbsp;|&nbsp; Password: <span style="color:#143322; font-weight:700;">admin123</span>
         </div>
       </form>
     </div>
