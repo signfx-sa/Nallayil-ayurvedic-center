@@ -581,6 +581,122 @@ const NallayilStore = {
   getLastPublished: function() {
     return localStorage.getItem('nallayil_last_published') || 'Live (Sync Active)';
   },
+
+  /* --------------------------------------------------------------------------
+     HERO SLIDER & PAGE WINDOW BANNERS STORE
+     -------------------------------------------------------------------------- */
+  getHeroSlides: function() {
+    const data = localStorage.getItem('nallayil_hero_slides');
+    if (!data) {
+      const defaultSlides = [
+        {
+          id: "slide-1",
+          title: "Rooted in Tradition.<br><span class=\"hero-heading-accent\">Crafted for Wellness.</span>",
+          subtext: "Authentic Kerala Ayurveda • Trusted Care • Natural Healing",
+          image: "images/slider-1.jpg"
+        },
+        {
+          id: "slide-2",
+          title: "ആയുർവേദ പാരമ്പര്യം.<br><span class=\"hero-heading-accent\">വിശ്വാസ്യതയുടെ തനിമ.</span>",
+          subtext: "നല്ലയിൽ ആയുർവേദ ഹെറിറ്റേജ് ഹോസ്പിറ്റൽ & ആയുർ ഹോം • മഞ്ചേരി",
+          image: "images/slider-2.jpg"
+        }
+      ];
+      localStorage.setItem('nallayil_hero_slides', JSON.stringify(defaultSlides));
+      return defaultSlides;
+    }
+    try {
+      return JSON.parse(data);
+    } catch(e) {
+      return [];
+    }
+  },
+
+  saveHeroSlides: function(slides) {
+    localStorage.setItem('nallayil_hero_slides', JSON.stringify(slides));
+    window.dispatchEvent(new CustomEvent('nallayil_hero_slides_updated', { detail: slides }));
+  },
+
+  updateHeroSlide: function(index, slideData) {
+    const slides = this.getHeroSlides();
+    if (slides[index]) {
+      slides[index] = { ...slides[index], ...slideData };
+    } else {
+      slides.push(slideData);
+    }
+    this.saveHeroSlides(slides);
+    return slides[index];
+  },
+
+  getPageBanners: function() {
+    const data = localStorage.getItem('nallayil_page_banners');
+    if (!data) {
+      const defaultBanners = {
+        about: {
+          id: "about",
+          page: "About Us",
+          tag: "Our Living Heritage",
+          title: "About Nallayil Ayurveda",
+          image: "images/about-nallayil.jpg"
+        },
+        treatments: {
+          id: "treatments",
+          page: "Treatments",
+          tag: "Clinical Tradition & Protocols",
+          title: "Specialized Ayurvedic Treatments",
+          image: "images/card-therapies.jpg"
+        },
+        journal: {
+          id: "journal",
+          page: "Ayurveda Journal",
+          tag: "Clinical Wisdom & Articles",
+          title: "Ayurveda Journal",
+          image: "images/card-wellness.jpg"
+        },
+        contact: {
+          id: "contact",
+          page: "Contact Us",
+          tag: "Reach Our Healers",
+          title: "Contact Us & Location Map",
+          image: "images/center-manjeri.jpg"
+        },
+        booking: {
+          id: "booking",
+          page: "Booking Consultation",
+          tag: "Doctor Consultation & Admissions",
+          title: "Reserve Your Consultation Slot",
+          image: "images/card-consultation.jpg"
+        },
+        gallery: {
+          id: "gallery",
+          page: "Hospital Gallery",
+          tag: "Photographic Tour",
+          title: "Hospital & Campus Gallery",
+          image: "images/about-nallayil.jpeg"
+        }
+      };
+      localStorage.setItem('nallayil_page_banners', JSON.stringify(defaultBanners));
+      return defaultBanners;
+    }
+    try {
+      return JSON.parse(data);
+    } catch(e) {
+      return {};
+    }
+  },
+
+  savePageBanners: function(banners) {
+    localStorage.setItem('nallayil_page_banners', JSON.stringify(banners));
+    window.dispatchEvent(new CustomEvent('nallayil_page_banners_updated', { detail: banners }));
+  },
+
+  updatePageBanner: function(pageKey, bannerData) {
+    const banners = this.getPageBanners();
+    banners[pageKey] = { ...(banners[pageKey] || {}), ...bannerData };
+    this.savePageBanners(banners);
+    return banners[pageKey];
+  },
+
   addBooking: function(booking) {
     const bookings = this.getBookings();
     bookings.unshift(booking);

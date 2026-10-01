@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNallayilCareSystem();
   initTreatmentsPageSync();
   initBookingFieldsSync();
+  initPageBannersSync();
   initBookingTreatmentAutoFilter();
 
   // Listen for admin changes via custom events
@@ -1044,4 +1045,68 @@ function initBookingFieldsSync() {
   window.addEventListener('nallayil_doctors_updated', syncFields);
   window.addEventListener('nallayil_booking_treatments_updated', syncFields);
   window.addEventListener('nallayil_data_published', syncFields);
+}
+
+
+/* --------------------------------------------------------------------------
+   DYNAMIC PAGE HERO BANNERS & SLIDERS SYNC (FROM CMS STORE)
+   -------------------------------------------------------------------------- */
+function initPageBannersSync() {
+  if (typeof NallayilStore === 'undefined') return;
+
+  function syncBanners() {
+    const banners = NallayilStore.getPageBanners() || {};
+    const isSubdir = window.location.pathname.includes('/about') || 
+                     window.location.pathname.includes('/treatments') || 
+                     window.location.pathname.includes('/journal') || 
+                     window.location.pathname.includes('/blog') || 
+                     window.location.pathname.includes('/ayurveda-journal') || 
+                     window.location.pathname.includes('/contact') || 
+                     window.location.pathname.includes('/booking') || 
+                     window.location.pathname.includes('/gallery');
+    const prefix = isSubdir ? '../' : '';
+
+    document.querySelectorAll('.hero-window-banner[data-banner-page]').forEach(el => {
+      const pageKey = el.getAttribute('data-banner-page');
+      const b = banners[pageKey];
+      if (b && b.image) {
+        let imgUrl = b.image;
+        if (!imgUrl.startsWith('http') && !imgUrl.startsWith('data:') && !imgUrl.startsWith('/') && !imgUrl.startsWith('../') && isSubdir) {
+          imgUrl = prefix + imgUrl;
+        }
+        el.style.setProperty('--hero-bg-img', `url('${imgUrl}')`);
+        el.style.backgroundImage = `linear-gradient(180deg, rgba(9, 29, 20, 0.80) 0%, rgba(15, 42, 30, 0.88) 100%), url('${imgUrl}')`;
+        el.style.backgroundSize = 'cover';
+        el.style.backgroundPosition = 'center center';
+        el.style.backgroundRepeat = 'no-repeat';
+      }
+    });
+
+    // Also sync Homepage Hero Slider images if on homepage
+    const slides = NallayilStore.getHeroSlides() || [];
+    if (slides.length) {
+      slides.forEach((s, idx) => {
+        const slideEl = document.querySelector(`.hero-slide[data-slide="${idx}"]`);
+        if (slideEl && s.image) {
+          const bgEl = slideEl.querySelector('.hero-slide-bg');
+          if (bgEl) {
+            bgEl.style.backgroundImage = `url('${s.image}')`;
+          }
+          if (s.title) {
+            const headingEl = slideEl.querySelector('.hero-heading');
+            if (headingEl) headingEl.innerHTML = s.title;
+          }
+          if (s.subtext) {
+            const subtextEl = slideEl.querySelector('.hero-subtext');
+            if (subtextEl) subtextEl.textContent = s.subtext;
+          }
+        }
+      });
+    }
+  }
+
+  syncBanners();
+  window.addEventListener('nallayil_page_banners_updated', syncBanners);
+  window.addEventListener('nallayil_hero_slides_updated', syncBanners);
+  window.addEventListener('nallayil_data_published', syncBanners);
 }

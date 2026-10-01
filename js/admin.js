@@ -152,6 +152,7 @@ function handleImageFileUpload(fileInput, textInputId, previewImgId) {
 // --------------------------------------------------------------------------
 function initAdminDataPanels() {
   renderDashboardStats();
+  renderAdminBanners();
   renderAdminTreatments();
   renderAdminArticles();
   renderAdminDoctors();
@@ -265,6 +266,7 @@ function saveTreatmentData() {
   resetTreatmentForm();
   renderAdminTreatments();
   renderDashboardStats();
+  renderAdminBanners();
 }
 
 function editTreatment(id) {
@@ -303,6 +305,7 @@ function deleteTreatment(id) {
   NallayilStore.deleteTreatment(id);
   renderAdminTreatments();
   renderDashboardStats();
+  renderAdminBanners();
 }
 
 // --------------------------------------------------------------------------
@@ -370,6 +373,7 @@ function saveJournalData() {
   resetArticleForm();
   renderAdminArticles();
   renderDashboardStats();
+  renderAdminBanners();
 }
 
 function editArticle(id) {
@@ -411,6 +415,7 @@ function deleteArticle(id) {
   NallayilStore.saveArticles(articles);
   renderAdminArticles();
   renderDashboardStats();
+  renderAdminBanners();
 }
 
 // --------------------------------------------------------------------------
@@ -464,6 +469,7 @@ function saveDoctorData() {
   resetDoctorForm();
   renderAdminDoctors();
   renderDashboardStats();
+  renderAdminBanners();
 }
 
 function editDoctor(id) {
@@ -497,6 +503,7 @@ function deleteDoctor(id) {
   NallayilStore.deleteDoctor(id);
   renderAdminDoctors();
   renderDashboardStats();
+  renderAdminBanners();
 }
 
 // Booking Sheet Treatment Options List
@@ -574,6 +581,7 @@ function updateBookingStatus(id, newStatus) {
     b.status = newStatus;
     NallayilStore.saveBookings(bookings);
     renderDashboardStats();
+  renderAdminBanners();
   }
 }
 
@@ -706,3 +714,132 @@ window.saveOfferData = saveOfferData;
 window.toggleOfferActive = toggleOfferActive;
 window.saveGalleryPhoto = saveGalleryPhoto;
 window.deleteGalleryPhoto = deleteGalleryPhoto;
+
+// --------------------------------------------------------------------------
+// HERO SLIDER & PAGE BANNER WINDOWS MANAGEMENT
+// --------------------------------------------------------------------------
+function renderAdminBanners() {
+  if (typeof NallayilStore === 'undefined') return;
+
+  // 1. Hero Slides
+  const slides = NallayilStore.getHeroSlides() || [];
+  if (slides[0]) {
+    const s1 = slides[0];
+    const img1 = document.getElementById('slide1Image');
+    const prev1 = document.getElementById('slide1Preview');
+    const t1 = document.getElementById('slide1Title');
+    const sub1 = document.getElementById('slide1Subtext');
+    if (img1) img1.value = s1.image || '';
+    if (prev1) prev1.style.backgroundImage = `url('${s1.image}')`;
+    if (t1) t1.value = s1.title || '';
+    if (sub1) sub1.value = s1.subtext || '';
+  }
+
+  if (slides[1]) {
+    const s2 = slides[1];
+    const img2 = document.getElementById('slide2Image');
+    const prev2 = document.getElementById('slide2Preview');
+    const t2 = document.getElementById('slide2Title');
+    const sub2 = document.getElementById('slide2Subtext');
+    if (img2) img2.value = s2.image || '';
+    if (prev2) prev2.style.backgroundImage = `url('${s2.image}')`;
+    if (t2) t2.value = s2.title || '';
+    if (sub2) sub2.value = s2.subtext || '';
+  }
+
+  // 2. Page Window Banners
+  const banners = NallayilStore.getPageBanners() || {};
+  const pages = ['about', 'treatments', 'journal', 'contact', 'booking', 'gallery'];
+  pages.forEach(p => {
+    const b = banners[p];
+    if (b) {
+      const input = document.getElementById(`banner_${p}_img`);
+      const preview = document.getElementById(`banner_${p}_preview`);
+      if (input) input.value = b.image || '';
+      if (preview) preview.style.backgroundImage = `url('${b.image}')`;
+    }
+  });
+}
+
+function updateSlidePreview(index, url) {
+  const prevId = index === 0 ? 'slide1Preview' : 'slide2Preview';
+  const box = document.getElementById(prevId);
+  if (box && url) {
+    box.style.backgroundImage = `url('${url}')`;
+  }
+}
+
+function updateWindowPreview(key, url) {
+  const box = document.getElementById(`banner_${key}_preview`);
+  if (box && url) {
+    box.style.backgroundImage = `url('${url}')`;
+  }
+}
+
+function handleBannerFileUpload(fileInput, textInputId, previewBoxId) {
+  if (!fileInput.files || !fileInput.files[0]) return;
+  const file = fileInput.files[0];
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    const textInput = document.getElementById(textInputId);
+    const previewBox = document.getElementById(previewBoxId);
+
+    if (textInput) textInput.value = dataUrl;
+    if (previewBox) {
+      previewBox.style.backgroundImage = `url('${dataUrl}')`;
+    }
+    showAdminMiniToast('Image loaded! Click Save to apply.');
+  };
+  reader.readAsDataURL(file);
+}
+
+function saveHeroSlide(index) {
+  if (typeof NallayilStore === 'undefined') return;
+
+  const isSlide1 = index === 0;
+  const imgInput = document.getElementById(isSlide1 ? 'slide1Image' : 'slide2Image');
+  const titleInput = document.getElementById(isSlide1 ? 'slide1Title' : 'slide2Title');
+  const subtextInput = document.getElementById(isSlide1 ? 'slide1Subtext' : 'slide2Subtext');
+
+  const image = imgInput ? imgInput.value.trim() : '';
+  const title = titleInput ? titleInput.value.trim() : '';
+  const subtext = subtextInput ? subtextInput.value.trim() : '';
+
+  if (!image) {
+    alert('Please provide an image for the slide.');
+    return;
+  }
+
+  NallayilStore.updateHeroSlide(index, { image, title, subtext });
+  showAdminMiniToast(`Slide ${index + 1} updated! Click "Publish to Webpage" to make live.`);
+}
+
+function savePageBanner(pageKey) {
+  if (typeof NallayilStore === 'undefined') return;
+
+  const input = document.getElementById(`banner_${pageKey}_img`);
+  const image = input ? input.value.trim() : '';
+
+  if (!image) {
+    alert('Please provide an image path or URL.');
+    return;
+  }
+
+  NallayilStore.updatePageBanner(pageKey, { image });
+  showAdminMiniToast(`${pageKey.toUpperCase()} header banner updated! Click "Publish to Webpage" to make live.`);
+}
+
+function showAdminMiniToast(message) {
+  const toast = document.createElement('div');
+  toast.style.cssText = 'position:fixed; bottom:28px; right:28px; background:#143322; color:#fff; padding:14px 24px; border-radius:50px; font-weight:600; font-size:0.9rem; z-index:999999; box-shadow:0 8px 24px rgba(0,0,0,0.25); display:flex; align-items:center; gap:10px; font-family:Inter,sans-serif; animation:slideIn 0.3s ease; border:1px solid #087A24;';
+  toast.innerHTML = `<i class="fas fa-check-circle" style="color:#4ADE80; font-size:1.1rem;"></i> <span>${message}</span>`;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.4s ease';
+    setTimeout(() => toast.remove(), 400);
+  }, 2200);
+}

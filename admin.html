@@ -68,6 +68,10 @@
           <i class="fas fa-chart-line"></i>
           <span>Dashboard Overview</span>
         </div>
+        <div class="sidebar-link" data-tab="banners">
+          <i class="fas fa-sliders-h"></i>
+          <span>Slider &amp; Page Banners</span>
+        </div>
         <div class="sidebar-link" data-tab="treatments">
           <i class="fas fa-hand-holding-medical"></i>
           <span>Treatments CMS</span>
@@ -185,6 +189,281 @@
                 <!-- Dynamically populated -->
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      
+      <!-- TAB: HERO SLIDER & PAGE BANNER WINDOWS -->
+      <section class="tab-panel" id="panel-banners">
+        
+        <!-- CARD 1: HOMEPAGE HERO SLIDER -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title"><i class="fas fa-images" style="color:var(--admin-accent); margin-right:8px;"></i> Homepage Hero Slider Images</h3>
+              <p class="card-subtitle">Manage background slides, English and Malayalam headlines, and subtext displayed on the homepage slider (index.html).</p>
+            </div>
+          </div>
+
+          <div class="banner-manager-grid">
+            
+            <!-- Slide 1 (English Holism) -->
+            <div class="banner-window-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:var(--admin-primary); font-size:1.05rem;"><i class="fas fa-image"></i> Slide 1 (English • Luxury Holism)</strong>
+                <span class="badge badge-info">Home Primary</span>
+              </div>
+              
+              <div class="banner-preview-box" id="slide1Preview" style="background-image: url('images/slider-1.jpg');">
+                <div class="banner-preview-overlay"></div>
+                <div class="banner-preview-text">
+                  <span>NALLAYIL AYURVEDA</span>
+                  <h4 id="slide1PreviewTitle">Rooted in Tradition. Crafted for Wellness.</h4>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:12px;">
+                <label class="form-label">Slide 1 Image (Upload from Computer or URL)</label>
+                <div class="image-upload-wrapper" style="margin-top:0;">
+                  <div style="flex-grow:1;">
+                    <input type="text" id="slide1Image" class="form-control" placeholder="images/slider-1.jpg or URL" value="images/slider-1.jpg" oninput="updateSlidePreview(0, this.value)">
+                    <label class="upload-file-btn">
+                      <i class="fas fa-upload"></i> Choose Slide 1 Image from Computer
+                      <input type="file" accept="image/*" style="display:none;" onchange="handleBannerFileUpload(this, 'slide1Image', 'slide1Preview')">
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:12px;">
+                <label class="form-label">Slide 1 Headline (Supports HTML)</label>
+                <input type="text" id="slide1Title" class="form-control" placeholder="Rooted in Tradition..." value="Rooted in Tradition.<br><span class=&quot;hero-heading-accent&quot;>Crafted for Wellness.</span>">
+              </div>
+
+              <div class="form-group" style="margin-bottom:16px;">
+                <label class="form-label">Slide 1 Subtext</label>
+                <input type="text" id="slide1Subtext" class="form-control" placeholder="Authentic Kerala Ayurveda..." value="Authentic Kerala Ayurveda • Trusted Care • Natural Healing">
+              </div>
+
+              <button type="button" class="btn btn-primary" onclick="saveHeroSlide(0)">
+                <i class="fas fa-save"></i> Save Slide 1
+              </button>
+            </div>
+
+            <!-- Slide 2 (Malayalam Heritage) -->
+            <div class="banner-window-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:var(--admin-primary); font-size:1.05rem;"><i class="fas fa-image"></i> Slide 2 (Malayalam • Heritage &amp; Trust)</strong>
+                <span class="badge badge-success">Malayalam</span>
+              </div>
+              
+              <div class="banner-preview-box" id="slide2Preview" style="background-image: url('images/slider-2.jpg');">
+                <div class="banner-preview-overlay"></div>
+                <div class="banner-preview-text">
+                  <span>നല്ലയിൽ ആയുർവേദ</span>
+                  <h4 id="slide2PreviewTitle">ആയുർവേദ പാരമ്പര്യം. വിശ്വാസ്യതയുടെ തനിമ.</h4>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:12px;">
+                <label class="form-label">Slide 2 Image (Upload from Computer or URL)</label>
+                <div class="image-upload-wrapper" style="margin-top:0;">
+                  <div style="flex-grow:1;">
+                    <input type="text" id="slide2Image" class="form-control" placeholder="images/slider-2.jpg or URL" value="images/slider-2.jpg" oninput="updateSlidePreview(1, this.value)">
+                    <label class="upload-file-btn">
+                      <i class="fas fa-upload"></i> Choose Slide 2 Image from Computer
+                      <input type="file" accept="image/*" style="display:none;" onchange="handleBannerFileUpload(this, 'slide2Image', 'slide2Preview')">
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:12px;">
+                <label class="form-label">Slide 2 Headline (Malayalam / English)</label>
+                <input type="text" id="slide2Title" class="form-control" placeholder="ആയുർവേദ പാരമ്പര്യം..." value="ആയുർവേദ പാരമ്പര്യം.<br><span class=&quot;hero-heading-accent&quot;>വിശ്വാസ്യതയുടെ തനിമ.</span>">
+              </div>
+
+              <div class="form-group" style="margin-bottom:16px;">
+                <label class="form-label">Slide 2 Subtext</label>
+                <input type="text" id="slide2Subtext" class="form-control" placeholder="നല്ലയിൽ ആയുർവേദ..." value="നല്ലയിൽ ആയുർവേദ ഹെറിറ്റേജ് ഹോസ്പിറ്റൽ &amp; ആയുർ ഹോം • മഞ്ചേരി">
+              </div>
+
+              <button type="button" class="btn btn-primary" onclick="saveHeroSlide(1)">
+                <i class="fas fa-save"></i> Save Slide 2
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CARD 2: SUBPAGE HEADER WINDOWS (GREEN FADED BACKGROUNDS) -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title"><i class="fas fa-window-maximize" style="color:var(--admin-accent); margin-right:8px;"></i> Subpage Header Windows (Green Faded Background Images)</h3>
+              <p class="card-subtitle">Manage background images for the green-faded header windows across all main pages. Each window is automatically rendered with our botanical emerald gradient overlay.</p>
+            </div>
+          </div>
+
+          <div class="banner-windows-grid-3">
+            
+            <!-- Window 1: About Us -->
+            <div class="banner-window-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:var(--admin-primary); font-size:1rem;">About Us Window</strong>
+                <span class="badge badge-info">about.html</span>
+              </div>
+              <div class="banner-preview-box" id="banner_about_preview" style="background-image: url('images/about-nallayil.jpg');">
+                <div class="banner-preview-overlay"></div>
+                <div class="banner-preview-text">
+                  <span>Our Living Heritage</span>
+                  <h4>About Nallayil Ayurveda</h4>
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label">Background Image</label>
+                <input type="text" id="banner_about_img" class="form-control" value="images/about-nallayil.jpg" oninput="updateWindowPreview('about', this.value)">
+                <label class="upload-file-btn">
+                  <i class="fas fa-upload"></i> Choose Image from Computer
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleBannerFileUpload(this, 'banner_about_img', 'banner_about_preview')">
+                </label>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" onclick="savePageBanner('about')">
+                <i class="fas fa-check"></i> Update About Banner
+              </button>
+            </div>
+
+            <!-- Window 2: Treatments -->
+            <div class="banner-window-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:var(--admin-primary); font-size:1rem;">Treatments Window</strong>
+                <span class="badge badge-info">treatments.html</span>
+              </div>
+              <div class="banner-preview-box" id="banner_treatments_preview" style="background-image: url('images/card-therapies.jpg');">
+                <div class="banner-preview-overlay"></div>
+                <div class="banner-preview-text">
+                  <span>Clinical Tradition &amp; Protocols</span>
+                  <h4>Specialized Treatments</h4>
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label">Background Image</label>
+                <input type="text" id="banner_treatments_img" class="form-control" value="images/card-therapies.jpg" oninput="updateWindowPreview('treatments', this.value)">
+                <label class="upload-file-btn">
+                  <i class="fas fa-upload"></i> Choose Image from Computer
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleBannerFileUpload(this, 'banner_treatments_img', 'banner_treatments_preview')">
+                </label>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" onclick="savePageBanner('treatments')">
+                <i class="fas fa-check"></i> Update Treatments Banner
+              </button>
+            </div>
+
+            <!-- Window 3: Ayurveda Journal -->
+            <div class="banner-window-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:var(--admin-primary); font-size:1rem;">Ayurveda Journal Window</strong>
+                <span class="badge badge-info">journal.html</span>
+              </div>
+              <div class="banner-preview-box" id="banner_journal_preview" style="background-image: url('images/card-wellness.jpg');">
+                <div class="banner-preview-overlay"></div>
+                <div class="banner-preview-text">
+                  <span>Clinical Wisdom &amp; Articles</span>
+                  <h4>Ayurveda Journal</h4>
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label">Background Image</label>
+                <input type="text" id="banner_journal_img" class="form-control" value="images/card-wellness.jpg" oninput="updateWindowPreview('journal', this.value)">
+                <label class="upload-file-btn">
+                  <i class="fas fa-upload"></i> Choose Image from Computer
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleBannerFileUpload(this, 'banner_journal_img', 'banner_journal_preview')">
+                </label>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" onclick="savePageBanner('journal')">
+                <i class="fas fa-check"></i> Update Journal Banner
+              </button>
+            </div>
+
+            <!-- Window 4: Contact Us -->
+            <div class="banner-window-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:var(--admin-primary); font-size:1rem;">Contact Us Window</strong>
+                <span class="badge badge-info">contact.html</span>
+              </div>
+              <div class="banner-preview-box" id="banner_contact_preview" style="background-image: url('images/center-manjeri.jpg');">
+                <div class="banner-preview-overlay"></div>
+                <div class="banner-preview-text">
+                  <span>Reach Our Healers</span>
+                  <h4>Contact Us &amp; Location Map</h4>
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label">Background Image</label>
+                <input type="text" id="banner_contact_img" class="form-control" value="images/center-manjeri.jpg" oninput="updateWindowPreview('contact', this.value)">
+                <label class="upload-file-btn">
+                  <i class="fas fa-upload"></i> Choose Image from Computer
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleBannerFileUpload(this, 'banner_contact_img', 'banner_contact_preview')">
+                </label>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" onclick="savePageBanner('contact')">
+                <i class="fas fa-check"></i> Update Contact Banner
+              </button>
+            </div>
+
+            <!-- Window 5: Doctor Consultation & Admissions -->
+            <div class="banner-window-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:var(--admin-primary); font-size:1rem;">Booking Window</strong>
+                <span class="badge badge-info">booking.html</span>
+              </div>
+              <div class="banner-preview-box" id="banner_booking_preview" style="background-image: url('images/card-consultation.jpg');">
+                <div class="banner-preview-overlay"></div>
+                <div class="banner-preview-text">
+                  <span>Doctor Consultation &amp; Admissions</span>
+                  <h4>Reserve Your Consultation</h4>
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label">Background Image</label>
+                <input type="text" id="banner_booking_img" class="form-control" value="images/card-consultation.jpg" oninput="updateWindowPreview('booking', this.value)">
+                <label class="upload-file-btn">
+                  <i class="fas fa-upload"></i> Choose Image from Computer
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleBannerFileUpload(this, 'banner_booking_img', 'banner_booking_preview')">
+                </label>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" onclick="savePageBanner('booking')">
+                <i class="fas fa-check"></i> Update Booking Banner
+              </button>
+            </div>
+
+            <!-- Window 6: Hospital Gallery -->
+            <div class="banner-window-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:var(--admin-primary); font-size:1rem;">Campus Gallery Window</strong>
+                <span class="badge badge-info">gallery.html</span>
+              </div>
+              <div class="banner-preview-box" id="banner_gallery_preview" style="background-image: url('images/about-nallayil.jpeg');">
+                <div class="banner-preview-overlay"></div>
+                <div class="banner-preview-text">
+                  <span>Photographic Tour</span>
+                  <h4>Hospital &amp; Campus Gallery</h4>
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:10px;">
+                <label class="form-label">Background Image</label>
+                <input type="text" id="banner_gallery_img" class="form-control" value="images/about-nallayil.jpeg" oninput="updateWindowPreview('gallery', this.value)">
+                <label class="upload-file-btn">
+                  <i class="fas fa-upload"></i> Choose Image from Computer
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleBannerFileUpload(this, 'banner_gallery_img', 'banner_gallery_preview')">
+                </label>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" onclick="savePageBanner('gallery')">
+                <i class="fas fa-check"></i> Update Gallery Banner
+              </button>
+            </div>
+
           </div>
         </div>
       </section>
