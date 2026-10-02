@@ -30,7 +30,7 @@
       <form id="adminAuthForm" onsubmit="event.preventDefault(); verifyAdminCredentials();">
         <div class="auth-input-group">
           <label class="auth-label" for="authUsernameInput">Username</label>
-          <input type="text" id="authUsernameInput" class="auth-input" placeholder="Enter username (e.g. Nallayil)" autocomplete="username" required autofocus>
+          <input type="text" id="authUsernameInput" class="auth-input" placeholder="Enter username" autocomplete="username" required autofocus>
         </div>
         <div class="auth-input-group">
           <label class="auth-label" for="authPasswordInput">Password</label>
@@ -45,14 +45,9 @@
           <i class="fas fa-lock-open" style="margin-right:8px;"></i> Sign In to Control Center
         </button>
         <div class="auth-error" id="authErrorMessage" style="display:none; margin-top:12px; padding:10px; border-radius:8px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#DC2626; font-size:0.85rem;">
-          <i class="fas fa-exclamation-circle"></i> Invalid credentials. Access denied.
+          <i class="fas fa-exclamation-circle"></i> Invalid username or password. Access denied.
         </div>
-        <div class="auth-hint-box" style="margin-top:20px; padding:12px 14px; background:rgba(20,51,34,0.05); border:1px dashed rgba(20,51,34,0.25); border-radius:12px; font-size:0.82rem; color:#4E6354; text-align:center; line-height:1.45;">
-          <i class="fas fa-shield-alt" style="color:#C9A227; margin-right:5px;"></i>
-          <strong>Administrator Credentials:</strong><br>
-          Username: <span style="color:#143322; font-weight:700;">Nallayil</span> &nbsp;|&nbsp; Password: <span style="color:#143322; font-weight:700;">Secret@2026</span>
-        </div>
-      </form>
+        </form>
     </div>
   </div>
 
