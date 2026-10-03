@@ -3,65 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Specialized Ayurvedic Treatments | Nallayil Ayurveda Kerala</title>
-  <meta name="description" content="Explore traditional Ayurvedic treatments at Nallayil Ayurveda: Marma Chikitsa, Non-Surgical Spine Care, Classical Panchakarma, Arthritis Care, and Stroke Recovery.">
+  <title>Ayurvedic Treatments &amp; Therapies | Nallayil Ayurveda Kerala</title>
+  <meta name="description" content="Explore personalized Ayurvedic treatments at Nallayil Ayurveda in Manjeri: Classical Panchakarma, Abhyanga, Shirodhara, Marma Chikitsa, Kizhi, and Restorative Therapies.">
   
+  <!-- Preconnect & Typography Fonts (Cormorant Garamond, Playfair Display, Plus Jakarta Sans, Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <link rel="stylesheet" href="css/style.css?v=2.2">
-  <style>
-    .treatment-detail-card {
-      background: #FFFFFF;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 40px;
-      display: grid;
-      grid-template-columns: 380px 1fr;
-      transition: var(--transition);
-    }
-    .treatment-detail-card:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: var(--primary-leaf);
-    }
-    .tdc-img-wrap {
-      height: 100%;
-      min-height: 300px;
-      position: relative;
-    }
-    .tdc-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .treatment-detail-card:hover .tdc-img-wrap img {
-      transform: scale(1.04);
-    }
-    .tdc-body {
-      padding: 38px 42px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    @media (max-width: 900px) {
-      .treatment-detail-card {
-        grid-template-columns: 1fr;
-      }
-      .tdc-img-wrap {
-        height: 240px;
-        min-height: 240px;
-      }
-      .tdc-body {
-        padding: 24px;
-      }
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Global & Page-Specific Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=2.3">
+  <link rel="stylesheet" href="css/treatments.css?v=2.3">
+  
   <style>
     /* Instant Anti-Flash CTA Rules: Desktop = 'Book Now', Mobile = 'Book' */
     .btn-text-mobile { display: none !important; }
@@ -72,15 +26,12 @@
     }
   </style>
 </head>
-<body>
+<body class="inner-page treatments-page">
+  <div class="content-layer">
 
-  
-
-  <!-- Sticky Navbar -->
-      <!-- Liquid Glass Header -->
-        <!-- Liquid Glass Header -->
-    <!-- Floating Liquid Glass Header with Integrated Smooth Expanding Mobile Menu -->
-        <!-- Floating Liquid Glass Header with Integrated Smooth Expanding Mobile Menu -->
+    <!-- ======================================================================
+         FLOATING LIQUID GLASS HEADER & NAVIGATION BAR
+         ====================================================================== -->
     <header class="site-header liquid-glass compact-glass" id="navbar">
       <div class="container nav-container">
         
@@ -138,416 +89,788 @@
           </a>
         </div>
       </div>
-    </header><!-- Mobile Drawer -->
-  
+    </header>
 
-  <!-- Header Banner -->
-  <!-- Page Hero (Exact Match to Image 1: Deep Forest Green Luxury Aesthetic) -->
-  <section class="page-hero hero-window-banner" data-banner-page="treatments" style="--hero-bg-img: url('images/card-therapies.jpg'); background-image: linear-gradient(180deg, rgba(9, 29, 20, 0.80) 0%, rgba(15, 42, 30, 0.88) 100%), url('images/card-therapies.jpg');">
-    <div class="container">
-      <span class="page-tag">Clinical Tradition &amp; Protocols</span>
-      <h1>Specialized Ayurvedic Treatments</h1>
-      <p>Discover root-cause clinical protocols developed over twenty-five years to resolve chronic orthopedic, neurological, and metabolic conditions without surgical intervention.</p>
-    </div>
-  </section>
-
-  <!-- Treatments Detailed Content -->
-  <main style="padding: 70px 0 100px; background-color: var(--bg-white);">
-    <div class="container" id="treatmentsCardsContainer">
-      
-      <!-- 1. Marma Chikitsa -->
-      <article class="treatment-detail-card" id="marma">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Marma Chikitsa" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Spine &amp; Vital Points</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Marma Chikitsa (മർമ്മ ചികിത്സ)</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              Marma Chikitsa is Kerala's ancient science of stimulating the 107 vital energy intersections (Marmas) where muscle, nerve, bone, and life force (prana) converge. Traumatic injuries, postural strain, and compressed discs often cause energy stagnation and severe radiating pain.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size:0.95rem;">Key Clinical Indications:</strong>
-              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-                <span class="treatment-tag">Trapped Nerves</span>
-                <span class="treatment-tag">Sciatica Radiation</span>
-                <span class="treatment-tag">Whiplash Injury</span>
-                <span class="treatment-tag">Sports Sprains</span>
-                <span class="treatment-tag">Frozen Shoulder</span>
-                <span class="treatment-tag">Postural Deformity</span>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:16px; border-top:1px solid var(--border-subtle);">
-            <span style="font-weight:700; color:var(--primary-deep); font-size:0.9rem;"><i class="fas fa-clock"></i> Recommended: 7 to 21 Days</span>
-            <a href="booking.html?treatment=Marma%20Chikitsa" class="btn btn-primary btn-sm">
-              Book Marma Consultation <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2. Spine & Disc -->
-      <article class="treatment-detail-card" id="spine">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80" alt="Spine and Disc Care" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Spine Rehabilitation</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Non-Surgical Spine &amp; Disc Care</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              Our signature non-surgical protocol for herniated, slipped, and degenerative discs. By pooling medicated warm herbal oils (Kati Vasti, Griva Vasti) over affected vertebrae, we reduce disc inflammation, relieve canal stenosis, and stimulate collagen rehydration in intervertebral cushions.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size:0.95rem;">Key Clinical Indications:</strong>
-              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-                <span class="treatment-tag">L4-L5 Disc Prolapse</span>
-                <span class="treatment-tag">Cervical Spondylosis</span>
-                <span class="treatment-tag">Lumbar Canal Stenosis</span>
-                <span class="treatment-tag">Ankylosing Spondylitis</span>
-                <span class="treatment-tag">Degenerative Disc Disease</span>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:16px; border-top:1px solid var(--border-subtle);">
-            <span style="font-weight:700; color:var(--primary-deep); font-size:0.9rem;"><i class="fas fa-clock"></i> Recommended: 14 to 28 Days</span>
-            <a href="booking.html?treatment=Spine%20%26%20Disc%20Rehabilitation" class="btn btn-primary btn-sm">
-              Book Spine Consultation <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 3. Classical Panchakarma -->
-      <article class="treatment-detail-card" id="panchakarma">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Classical Panchakarma Detox" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Cellular Bio-Purification</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Classical Panchakarma Detox</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              Panchakarma is the complete 5-fold biological reset. Beginning with preparatory oleation (Snehana) and steam sweating (Swedana), internal toxins (Ama) are mobilized and gently eliminated through therapeutic emesis, purgation, herbal enemas (Vasti), nasal administration (Nasya), and bloodletting.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size:0.95rem;">Key Clinical Indications:</strong>
-              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-                <span class="treatment-tag">Chronic Fatigue</span>
-                <span class="treatment-tag">Autoimmune Disorders</span>
-                <span class="treatment-tag">Metabolic Syndrome</span>
-                <span class="treatment-tag">Liver Sluggishness</span>
-                <span class="treatment-tag">Premature Aging</span>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:16px; border-top:1px solid var(--border-subtle);">
-            <span style="font-weight:700; color:var(--primary-deep); font-size:0.9rem;"><i class="fas fa-clock"></i> Recommended: 7, 14 or 21 Days</span>
-            <a href="booking.html?treatment=Classical%20Panchakarma%20Detox" class="btn btn-primary btn-sm">
-              Book Panchakarma Session <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 4. Joint & Arthritis Care -->
-      <article class="treatment-detail-card" id="arthritis">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Arthritis and Joint Mobility" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Joint Mobility</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Arthritis &amp; Knee Joint Care</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              Combining Janu Vasti, Patra Pinda Sweda (leaf poultice massage), and specialized herbal decoctions, this therapy soothes acute synovial inflammation, boosts joint fluid production, and rebuilds degenerated cartilage without steroid injections.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size:0.95rem;">Key Clinical Indications:</strong>
-              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-                <span class="treatment-tag">Osteoarthritis</span>
-                <span class="treatment-tag">Rheumatoid Arthritis (Amavata)</span>
-                <span class="treatment-tag">Gout (Vatarakta)</span>
-                <span class="treatment-tag">Ligament Tears</span>
-                <span class="treatment-tag">Morning Joint Stiffness</span>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:16px; border-top:1px solid var(--border-subtle);">
-            <span style="font-weight:700; color:var(--primary-deep); font-size:0.9rem;"><i class="fas fa-clock"></i> Recommended: 14 to 21 Days</span>
-            <a href="booking.html?treatment=Joint%20%26%20Arthritis%20Care" class="btn btn-primary btn-sm">
-              Book Joint Consultation <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 5. Stroke & Neuro Rehab -->
-      <article class="treatment-detail-card" id="neuro">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" alt="Stroke and Neurological Recovery" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Neurological Care</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Stroke &amp; Paralysis Rehabilitation (Pakshaghatha)</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              Comprehensive neurological rejuvenation for patients recovering from ischemic stroke, hemiplegia, paraplegia, and Bell's palsy. Incorporates Navarakizhi (medicinal rice bundle massage), Pizhichil (warm medicated oil stream), and neuro-protective rasayanas.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size:0.95rem;">Key Clinical Indications:</strong>
-              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-                <span class="treatment-tag">Post-Stroke Hemiplegia</span>
-                <span class="treatment-tag">Facial Nerve Palsy</span>
-                <span class="treatment-tag">Parkinson's Symptoms</span>
-                <span class="treatment-tag">Motor Neuron Weakness</span>
-                <span class="treatment-tag">Peripheral Neuropathy</span>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:16px; border-top:1px solid var(--border-subtle);">
-            <span style="font-weight:700; color:var(--primary-deep); font-size:0.9rem;"><i class="fas fa-clock"></i> Recommended: 21 to 45 Days</span>
-            <a href="booking.html?treatment=Stroke%20%26%20Paralysis%20Recovery" class="btn btn-primary btn-sm">
-              Book Neuro Consultation <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 6. Stress, Insomnia & Shirodhara -->
-      <article class="treatment-detail-card" id="shirodhara">
-        <div class="tdc-img-wrap">
-          <img src="images/shirodhara-hero.svg" alt="Shirodhara Treatment" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Mind &amp; Nervous System</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Stress, Insomnia &amp; Shirodhara</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              The gentle, rhythmic pouring of warm herbal oil or medicated buttermilk across the forehead. Stimulates the pituitary and pineal glands, harmonizing serotonin and melatonin rhythms to melt chronic anxiety, insomnia, and migraines.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size:0.95rem;">Key Clinical Indications:</strong>
-              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-                <span class="treatment-tag">Chronic Insomnia</span>
-                <span class="treatment-tag">Anxiety &amp; Burnout</span>
-                <span class="treatment-tag">Migraines</span>
-                <span class="treatment-tag">Hypertension</span>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:16px; border-top:1px solid var(--border-subtle);">
-            <span style="font-weight:700; color:var(--primary-deep); font-size:0.9rem;"><i class="fas fa-clock"></i> Recommended: 5 to 14 Days</span>
-            <a href="booking.html?treatment=Stress%2C%20Insomnia%20%26%20Shirodhara" class="btn btn-primary btn-sm">
-              Book Shirodhara Session <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 7. Wellness Treatments -->
-      <article class="treatment-detail-card" id="wellness">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80" alt="Wellness Treatments" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Mind &amp; Body Rejuvenation</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Wellness Treatments</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              Restorative therapies focused on holistic stress relief, mental clarity, and deep somatic relaxation. Combining classical medicated oil baths, soothing herbal head therapies, and mindful breath synchronization, our wellness protocols reset your autonomic nervous system and dissolve systemic fatigue.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size: 0.94rem;">Therapeutic Benefits:</strong>
-              <ul style="margin-top: 8px; list-style: disc; padding-left: 20px; color:var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
-                <li>Deep mental tranquility and relief from chronic occupational burnout</li>
-                <li>Restores sound sleep cycles (Nidra) and regulates circadian rhythm</li>
-                <li>Eliminates tension headaches, anxiety, and sensory exhaustion</li>
-              </ul>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 20px;">
-            <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);"><i class="fas fa-calendar-alt"></i> 3 to 14 Days Customized Packages</span>
-            <a href="booking.html?treatment=Wellness+Treatments" class="btn btn-primary" style="padding: 10px 24px;">Book Treatment</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 8. Beauty Treatments -->
-      <article class="treatment-detail-card" id="beauty">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Beauty Treatments" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Herbal Dermatological Care</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Beauty Treatments (സൗന്ദര്യ സംരക്ഷണം)</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              Pure classical herbal formulations that nourish the skin and restore natural, radiant vitality. Utilizing freshly ground medicinal herbs, saffron-infused oils, and customized botanical pastes (Lepanam), our Ayurvedic beauty therapies purify dermal micro-channels and revitalize skin tone from within.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size: 0.94rem;">Therapeutic Benefits:</strong>
-              <ul style="margin-top: 8px; list-style: disc; padding-left: 20px; color:var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
-                <li>100% organic botanical face &amp; skin therapies with zero harsh chemicals</li>
-                <li>Effective natural resolution for hyperpigmentation, acne, and premature aging</li>
-                <li>Promotes lasting cellular luster, dermal elasticity, and natural radiance</li>
-              </ul>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 20px;">
-            <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);"><i class="fas fa-calendar-alt"></i> 5 to 14 Days Program</span>
-            <a href="booking.html?treatment=Beauty+Treatments" class="btn btn-primary" style="padding: 10px 24px;">Book Treatment</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 9. OP Consultation -->
-      <article class="treatment-detail-card" id="op-consultation">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="OP Consultation" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Doctor Consultation &amp; Diagnosis</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">OP Consultation (വിദഗ്ദ്ധ ഡോക്ടർ പരിശോധന)</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              In-depth constitutional diagnosis and personalized treatment planning with experienced doctors. Our physicians practice traditional Ashtasthana Pariksha (eight-fold diagnostic examination) including Nadi Pariksha (pulse analysis) to pinpoint the root etiology of chronic ailments.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size: 0.94rem;">Consultation Features:</strong>
-              <ul style="margin-top: 8px; list-style: disc; padding-left: 20px; color:var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
-                <li>Comprehensive pulse analysis and constitutional dosha profiling</li>
-                <li>Personalized herbal prescription, dietary chart, and therapeutic roadmap</li>
-                <li>Continuous progress tracking at Manjeri Heritage Hospital</li>
-              </ul>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 20px;">
-            <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);"><i class="fas fa-clock"></i> Daily OP Timings: 08:30 AM - 08:00 PM</span>
-            <a href="booking.html?treatment=OP+Consultation" class="btn btn-primary" style="padding: 10px 24px;">Book OP Slot</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 10. Ayurveda Therapies -->
-      <article class="treatment-detail-card" id="ayurveda-therapies">
-        <div class="tdc-img-wrap">
-          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80" alt="Ayurveda Therapies" loading="lazy">
-        </div>
-        <div class="tdc-body">
-          <div>
-            <span class="section-tag">Classical Regimens</span>
-            <h2 style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--primary-deep); margin: 8px 0 12px;">Ayurveda Therapies (Kizhi &amp; Pizhichil)</h2>
-            <p style="color:var(--text-secondary); margin-bottom: 16px; line-height: 1.8;">
-              Time-tested classical regimens including Kizhi (herbal bundle fomentation) and Pizhichil (royal medicated warm oil bath), customized for your body type. These authentic Malabar external therapies lubricate joints, improve blood circulation, and break down deep-seated inflammation.
-            </p>
-            <div style="margin-bottom: 20px;">
-              <strong style="color:var(--primary-deep); font-size: 0.94rem;">Therapeutic Modalities:</strong>
-              <ul style="margin-top: 8px; list-style: disc; padding-left: 20px; color:var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
-                <li>Elakizhi, Podikizhi, and Navarakizhi for muscle spasm and spinal stiffness</li>
-                <li>Pizhichil warm oil pouring therapy for neurological rejuvenation and paralysis care</li>
-                <li>Tailored medicated herbal oils prepared in-house following classical Sahasrayogam</li>
-              </ul>
-            </div>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 20px;">
-            <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);"><i class="fas fa-calendar-alt"></i> 7 to 21 Days Program</span>
-            <a href="booking.html?treatment=Ayurveda+Therapies" class="btn btn-primary" style="padding: 10px 24px;">Book Therapy</a>
-          </div>
-        </div>
-      </article>
-
-
-
-    </div>
-  </main>
-
-  <!-- Footer (NO ADMIN / STAFF LINKS) -->
-      <!-- Footer -->
-    
-
-  <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
     <!-- ======================================================================
-         SECTION 9 — PREMIER AYURVEDA FOOTER (UPDATED SPECIFICATION)
+         SECTION 01: TREATMENT HERO
+         ====================================================================== -->
+    <section class="treatment-hero-section" id="hero">
+      <div class="container">
+        
+        <div class="treatment-hero-content">
+          <span class="treatments-eyebrow">OUR TREATMENTS</span>
+          <h1 class="treatment-hero-h1">Ayurveda, Personalised for You.</h1>
+          <p class="treatment-hero-desc">
+            Explore our Ayurvedic treatments and therapies, thoughtfully designed around individual needs and wellness goals.
+          </p>
+          <a href="contact.html#booking-sheet" class="btn btn-treatment-primary">
+            <span>Book an Appointment</span> <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Hero Visual: Serene Wide Angle of Droni and Medicated Oils -->
+        <div class="treatment-hero-visual-card">
+          <img src="images/slider-2.jpg" onerror="this.onerror=null; this.src='images/card-therapies.jpg';" alt="Traditional Ayurvedic Droni and Medicated Oils Sanctuary" class="treatment-hero-panoramic-img" loading="eager">
+          <div class="treatment-hero-badge-float">
+            <i class="fas fa-spa"></i>
+            <span>Classical Ayurvedic Droni &amp; Herbal Oil Sanctuary</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 02: FIND YOUR CARE (INTENT-BASED HEALTH NAVIGATION)
+         ====================================================================== -->
+    <section class="find-care-section" id="find-care">
+      <div class="container">
+        
+        <div class="find-care-header">
+          <h2 class="treatments-h2">What Are You Looking For?</h2>
+          <p class="treatments-subtext">
+            Select a health focus to discover relevant therapies.
+          </p>
+        </div>
+
+        <!-- 6 Interactive Intent Category Pills -->
+        <div class="find-care-grid">
+          
+          <!-- Pill 1: Pain & Mobility -->
+          <div class="care-intent-pill" onclick="filterMenuCategory('cat-therapeutic', this)" role="button" tabindex="0">
+            <div class="care-intent-icon">
+              <i class="fas fa-bone"></i>
+            </div>
+            <div class="care-intent-text">
+              <h4>Pain &amp; Mobility</h4>
+              <p>Joint pain, backache, arthritis</p>
+            </div>
+          </div>
+
+          <!-- Pill 2: Stress & Rejuvenation -->
+          <div class="care-intent-pill" onclick="filterMenuCategory('cat-wellness', this)" role="button" tabindex="0">
+            <div class="care-intent-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="care-intent-text">
+              <h4>Stress &amp; Rejuvenation</h4>
+              <p>Sleep issues, mental fatigue, burnout</p>
+            </div>
+          </div>
+
+          <!-- Pill 3: Skin & Hair -->
+          <div class="care-intent-pill" onclick="filterMenuCategory('cat-beauty', this)" role="button" tabindex="0">
+            <div class="care-intent-icon">
+              <i class="fas fa-spa"></i>
+            </div>
+            <div class="care-intent-text">
+              <h4>Skin &amp; Hair</h4>
+              <p>Psoriasis, eczema, natural vitality</p>
+            </div>
+          </div>
+
+          <!-- Pill 4: Digestive Wellness -->
+          <div class="care-intent-pill" onclick="filterMenuCategory('cat-specialised', this)" role="button" tabindex="0">
+            <div class="care-intent-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="care-intent-text">
+              <h4>Digestive Wellness</h4>
+              <p>Metabolism, acidity, detox</p>
+            </div>
+          </div>
+
+          <!-- Pill 5: Women’s Wellness -->
+          <div class="care-intent-pill" onclick="filterMenuCategory('cat-specialised', this)" role="button" tabindex="0">
+            <div class="care-intent-icon">
+              <i class="fas fa-female"></i>
+            </div>
+            <div class="care-intent-text">
+              <h4>Women’s Wellness</h4>
+              <p>Hormonal balance, postnatal care</p>
+            </div>
+          </div>
+
+          <!-- Pill 6: General Wellness -->
+          <div class="care-intent-pill" onclick="filterMenuCategory('cat-wellness', this)" role="button" tabindex="0">
+            <div class="care-intent-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="care-intent-text">
+              <h4>General Wellness</h4>
+              <p>Immunity, seasonal rejuvenation</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 03: FEATURED TREATMENTS (THE FLAGSHIP 6)
+         ====================================================================== -->
+    <section class="featured-treatments-section" id="featured">
+      <div class="container">
+        
+        <div class="featured-treatments-header">
+          <span class="treatments-eyebrow">CORE THERAPIES</span>
+          <h2 class="treatments-h2">Explore Our Treatments</h2>
+          <p class="treatments-subtext">
+            Our most sought-after classical healing programs, revered for profound bio-cleansing, neuromuscular restoration, and mental equilibrium.
+          </p>
+        </div>
+
+        <div class="featured-treatments-grid">
+          
+          <!-- Card 1: Panchakarma -->
+          <div class="featured-treatment-card">
+            <div class="featured-treatment-img-wrap">
+              <img src="images/card-panchakarma.jpg" alt="Classical Panchakarma Detoxification" loading="lazy">
+            </div>
+            <div class="featured-treatment-body">
+              <div>
+                <h3>Panchakarma</h3>
+                <p>Deep cellular purification and bio-detoxification to reset body metabolism.</p>
+              </div>
+              <a href="treatments/panchakarma.html" class="featured-treatment-link">
+                <span>Explore Therapy</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Abhyanga -->
+          <div class="featured-treatment-card">
+            <div class="featured-treatment-img-wrap">
+              <img src="images/card-wellness.jpg" alt="Abhyanga Full-Body Warm Medicated Oil Therapy" loading="lazy">
+            </div>
+            <div class="featured-treatment-body">
+              <div>
+                <h3>Abhyanga</h3>
+                <p>Full-body rhythmic medicated warm oil therapy to relieve fatigue and tone tissues.</p>
+              </div>
+              <a href="treatments/abhyanga.html" class="featured-treatment-link">
+                <span>Explore Therapy</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Shirodhara -->
+          <div class="featured-treatment-card">
+            <div class="featured-treatment-img-wrap">
+              <img src="images/card-therapies.jpg" onerror="this.onerror=null; this.src='images/img/shirodhara-hero.svg';" alt="Shirodhara Forehead Oil Flow Therapy" loading="lazy">
+            </div>
+            <div class="featured-treatment-body">
+              <div>
+                <h3>Shirodhara</h3>
+                <p>Continuous stream of herbal oil over the forehead to calm mental restlessness and insomnia.</p>
+              </div>
+              <a href="treatments/shirodhara.html" class="featured-treatment-link">
+                <span>Explore Therapy</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: Ayurvedic Consultation -->
+          <div class="featured-treatment-card">
+            <div class="featured-treatment-img-wrap">
+              <img src="images/card-consultation.jpg" alt="Ayurvedic Physician Clinical Consultation" loading="lazy">
+            </div>
+            <div class="featured-treatment-body">
+              <div>
+                <h3>Ayurvedic Consultation</h3>
+                <p>In-depth clinical assessment with experienced physicians to decode your innate Prakriti.</p>
+              </div>
+              <a href="treatments/consultation.html" class="featured-treatment-link">
+                <span>Explore Therapy</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5: Rejuvenation Therapies (Rasayana) -->
+          <div class="featured-treatment-card">
+            <div class="featured-treatment-img-wrap">
+              <img src="images/slider-1.jpg" alt="Rasayana Rejuvenation Therapies" loading="lazy">
+            </div>
+            <div class="featured-treatment-body">
+              <div>
+                <h3>Rejuvenation Therapies (Rasayana)</h3>
+                <p>Time-tested restorative therapies designed to boost cellular immunity and natural vitality.</p>
+              </div>
+              <a href="treatments/rejuvenation.html" class="featured-treatment-link">
+                <span>Explore Therapy</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6: Therapeutic Treatments (Marma & Kizhi) -->
+          <div class="featured-treatment-card">
+            <div class="featured-treatment-img-wrap">
+              <img src="images/card-marma.jpg" alt="Therapeutic Treatments Marma and Kizhi" loading="lazy">
+            </div>
+            <div class="featured-treatment-body">
+              <div>
+                <h3>Therapeutic Treatments (Marma &amp; Kizhi)</h3>
+                <p>Classical interventions targeting acute nerve compression, muscular stiffness, and chronic spine pain.</p>
+              </div>
+              <a href="treatments/marma-therapy.html" class="featured-treatment-link">
+                <span>Explore Therapy</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 04: EXPLORE BY CATEGORY (COMPLETE TREATMENT MENU)
+         ====================================================================== -->
+    <section class="complete-menu-section" id="complete-menu">
+      <div class="container">
+        
+        <div class="complete-menu-header">
+          <span class="treatments-eyebrow">CURATED PROTOCOLS</span>
+          <h2 class="treatments-h2">Explore by Category</h2>
+          <p class="treatments-subtext">
+            Our comprehensive clinical repository structured into four dedicated therapeutic domains.
+          </p>
+        </div>
+
+        <!-- 4 Health Buckets Tabs -->
+        <div class="menu-category-tabs">
+          <button type="button" class="menu-cat-btn active" onclick="switchTreatmentTab('cat-therapeutic', this)" id="tab-cat-therapeutic">
+            <i class="fas fa-heartbeat"></i> 1. Therapeutic Care (രോഗശമന ചികിത്സകൾ)
+          </button>
+          <button type="button" class="menu-cat-btn" onclick="switchTreatmentTab('cat-wellness', this)" id="tab-cat-wellness">
+            <i class="fas fa-spa"></i> 2. Wellness &amp; Rejuvenation (ആരോഗ്യ സംരക്ഷണം)
+          </button>
+          <button type="button" class="menu-cat-btn" onclick="switchTreatmentTab('cat-specialised', this)" id="tab-cat-specialised">
+            <i class="fas fa-stethoscope"></i> 3. Specialised Ayurvedic Care (പ്രത്യേക വിഭാഗങ്ങൾ)
+          </button>
+          <button type="button" class="menu-cat-btn" onclick="switchTreatmentTab('cat-beauty', this)" id="tab-cat-beauty">
+            <i class="fas fa-leaf"></i> 4. Beauty &amp; Personal Care (ഹെർബൽ സൗന്ദര്യ സംരക്ഷണം)
+          </button>
+        </div>
+
+        <!-- BUCKET 1: Therapeutic Care (രോഗശമന ചികിത്സകൾ) -->
+        <div class="menu-category-panel active" id="panel-cat-therapeutic">
+          <div class="category-items-grid">
+            
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">POULTICE THERAPY • കിഴി</span>
+                <h4>Kizhi (Elakizhi, Podikizhi, Navarakizhi)</h4>
+                <p class="category-item-desc">
+                  Warm medicated herbal leaves, herbal powders, or Navara rice bundles applied rhythmically to alleviate inflammatory joint conditions, neuromuscular stiffness, and sports injuries.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">45 - 60 Mins • Deep Heat Recovery</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">LOCALIZED OIL POOLING • വസ്തി</span>
+                <h4>Kati Vasti, Janu Vasti, Greeva Vasti</h4>
+                <p class="category-item-desc">
+                  Warm therapeutic herbal oil retained within circular herbal dough dams directly over the lumbar spine (Kati), knees (Janu), or neck (Greeva) to nourish discs and rebuild cartilage.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">45 Mins • Spine &amp; Joint Care</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">VITAL POINT STIMULATION • മർമ്മ ചികിത്സ</span>
+                <h4>Classical Marma Chikitsa</h4>
+                <p class="category-item-desc">
+                  Precise therapeutic stimulation of vital prana junction points to resolve acute musculoskeletal blocks, sciatic compression, and nerve pain without surgical interventions.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">45 - 60 Mins • Non-Surgical Recovery</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">ROYAL MEDICATED BATH • പിഴിച്ചിൽ</span>
+                <h4>Pizhichil (Medicated Oil Bath)</h4>
+                <p class="category-item-desc">
+                  The revered 'King of Ayurvedic Therapies'—continuous streams of warm therapeutic herbal oil poured over the body to nourish depleted tissues and rehabilitate mobility.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">60 - 75 Mins • Royal Restorative Care</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BUCKET 2: Wellness & Rejuvenation (ആരോഗ്യ സംരക്ഷണം) -->
+        <div class="menu-category-panel" id="panel-cat-wellness">
+          <div class="category-items-grid">
+            
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">FULL BODY ABHYANGA • അഭ്യംഗം &amp; സ്വേദനം</span>
+                <h4>Full Body Medicated Abhyanga &amp; Steam</h4>
+                <p class="category-item-desc">
+                  Traditional synchronized warm oil massage with herbal steam (Swedana) to liquefy deep metabolic toxins, increase peripheral circulation, and soothe nervous exhaustion.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">60 - 75 Mins • Vitality &amp; Detox</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">CRANIAL OIL FLOW • ശിരോധാര &amp; തക്രധാര</span>
+                <h4>Shirodhara &amp; Takradhara (Stress Relief)</h4>
+                <p class="category-item-desc">
+                  Gentle rhythmic oscillation of medicated warm oil or medicated buttermilk on the forehead to relieve insomnia, anxiety, migraines, and mental exhaustion.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">45 - 60 Mins • Deep Mental Calm</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">HERBAL FACIAL LEPAM • മുഖലേപം</span>
+                <h4>Mukhalepam (Traditional Herbal Facial Care)</h4>
+                <p class="category-item-desc">
+                  Botanical facial packs made from freshly ground medicinal herbs, saffron, and sandalwood to clarify complexion, stimulate micro-circulation, and tone facial tissues.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">45 Mins • Natural Radiance</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">CELLULAR RESTORATION • രസായനം</span>
+                <h4>Rasayana Therapy (Vitality Recovery)</h4>
+                <p class="category-item-desc">
+                  Time-tested restorative therapies designed to boost cellular immunity, natural vitality, and slow down degenerative physiological processes.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">7, 14 or 21 Days • Vitality Reset</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BUCKET 3: Specialised Ayurvedic Care (പ്രത്യേക വിഭാഗങ്ങൾ) -->
+        <div class="menu-category-panel" id="panel-cat-specialised">
+          <div class="category-items-grid">
+            
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">MATERNAL RECOVERY • പ്രസവരക്ഷ</span>
+                <h4>Postnatal Care (പ്രസവരക്ഷ)</h4>
+                <p class="category-item-desc">
+                  Time-honored holistic recovery protocols for new mothers featuring gentle herbal belly wrapping, restorative abhyanga, and nourishing internal kashayams.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">14 - 28 Days • Mother &amp; Child Vitality</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">NASAL ADMINISTRATION • നസ്യം</span>
+                <h4>Chronic Migraine &amp; Sinus Management (Nasyam)</h4>
+                <p class="category-item-desc">
+                  Nasal administration of medicated herb-infused drops to cleanse blocked sinus cavities, relieve cervical tension headaches, and heighten sensory clarity.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">30 - 45 Mins • Cranial &amp; Sinus Relief</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">MUSCULOSKELETAL CARE • വാതശമനം</span>
+                <h4>Arthritis &amp; Musculoskeletal Care</h4>
+                <p class="category-item-desc">
+                  Comprehensive non-invasive rehabilitation for osteoarthritis, rheumatoid conditions, and ankylosing spondylitis preserving joint flexibility.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">Customized Protocol • Pain-Free Mobility</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">METABOLIC DETOX • അഗ്നിദീപനം</span>
+                <h4>Metabolic &amp; Digestive Restoration</h4>
+                <p class="category-item-desc">
+                  Rebalancing sluggish Jatharagni (digestive fire), treating fatty liver, IBS, chronic acidity, and optimizing gut microbiome through classical formulations.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">7 - 14 Days • Deep Digestive Balance</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- BUCKET 4: Beauty & Personal Care (ഹെർബൽ സൗന്ദര്യ സംരക്ഷണം) -->
+        <div class="menu-category-panel" id="panel-cat-beauty">
+          <div class="category-items-grid">
+            
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">HERBAL POWDER SCRUB • ഉദ്വർത്തനം</span>
+                <h4>Herbal Body Polishing (Udvarthanam)</h4>
+                <p class="category-item-desc">
+                  Deep tissue dry herbal powder scrub to break down subcutaneous fat deposits, tone flaccid skin, stimulate lymphatics, and exfoliate dull surface cells.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">45 - 60 Mins • Lymphatic Body Tone</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">SCALP &amp; ROOT HEALTH • ശിരോലേപം</span>
+                <h4>Scalp &amp; Hair Root Strengthening Therapies</h4>
+                <p class="category-item-desc">
+                  Medicated herbal thailam head massages and herbal hair masks (Shiropichu/Thalapothichil) targeting premature greying, hair thinning, and scalp dryness.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">45 Mins • Follicle Nourishment</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">BOTANICAL COMPLEXION PACKS • സൗന്ദര്യ സംരക്ഷണം</span>
+                <h4>Natural Glow Herbal Face Packs</h4>
+                <p class="category-item-desc">
+                  Customized formulations blended from wild turmeric, manjistha, and botanical extracts tailored to sensitive skin, hormonal blemishes, and pigmentation.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">45 Mins • Blemish-Free Radiance</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+            <div class="category-item-card">
+              <div>
+                <span class="category-item-sub">FOOT REFLEXOLOGY • പാദാഭ്യംഗം</span>
+                <h4>Detoxifying Foot Rituals (Padabhyanga)</h4>
+                <p class="category-item-desc">
+                  Intensive reflexology and lower extremity herbal massage activating soothing kansa wands to reduce somatic stress, eye strain, and ground restless energy.
+                </p>
+              </div>
+              <div class="category-item-footer">
+                <span class="category-item-badge">40 Mins • Deep Grounding Balance</span>
+                <a href="contact.html#booking-sheet" class="category-item-btn">Book Therapy →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 05: WHY PERSONALISED AYURVEDA? (EDUCATIONAL ANCHOR)
+         ====================================================================== -->
+    <section class="why-personalised-section" id="why-personalised">
+      <div class="container">
+        
+        <div class="why-personalised-split">
+          
+          <!-- Left Column: Editorial Graphic / Quote Card -->
+          <div class="why-quote-card">
+            <div class="why-quote-mark">“</div>
+            <div class="why-quote-text">
+              Every person is born with a distinct biological equilibrium. True healing begins when we honour that individuality rather than enforcing rigid generic regimens.
+            </div>
+            <div class="why-quote-author">
+              Classical Tenet • Ashtanga Hridaya
+            </div>
+          </div>
+
+          <!-- Right Column: Core Principle -->
+          <div class="why-principles-body">
+            <span class="treatments-eyebrow">THE PHILOSOPHY OF CARE</span>
+            <h2 class="treatments-h2">Every Person Is Different. So Is Every Journey.</h2>
+            
+            <p>
+              In classical Ayurveda, there is no one-size-fits-all prescription. Your physical constitution, current metabolic state, lifestyle stress, and seasonal climate all dictate what your body requires.
+            </p>
+            <p>
+              At Nallayil, no therapy is administered blindly from a menu. Every session begins with listening to your body’s unique Prakriti and Vikriti, ensuring that every drop of oil, every herb, and every therapeutic stroke works in complete harmony with your biology.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 06: TREATMENT EXPERIENCE (YOUR JOURNEY AT NALLAYIL)
+         ====================================================================== -->
+    <section class="treatment-experience-section" id="experience">
+      <div class="container">
+        
+        <div class="find-care-header">
+          <span class="treatments-eyebrow">PATIENT PATHWAY</span>
+          <h2 class="treatments-h2">Your Treatment Journey</h2>
+          <p class="treatments-subtext">
+            From initial constitutional mapping to post-therapy dietary balance, each step is designed for calm, systematic recovery.
+          </p>
+        </div>
+
+        <!-- Clean Horizontal Step Timeline: [ 01 ] -> [ 02 ] -> [ 03 ] -> [ 04 ] -->
+        <div class="experience-timeline-container">
+          
+          <!-- Step 01 -->
+          <div class="experience-step-card">
+            <div class="step-num-pill">01</div>
+            <h3>Consultation</h3>
+            <p>Detailed pulse &amp; lifestyle dialogue with senior doctors.</p>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="experience-step-card">
+            <div class="step-num-pill">02</div>
+            <h3>Assessment</h3>
+            <p>Comprehensive Prakriti &amp; health imbalance mapping.</p>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="experience-step-card">
+            <div class="step-num-pill">03</div>
+            <h3>Personalised Therapy</h3>
+            <p>Administered in hygienic suites by skilled therapists.</p>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="experience-step-card">
+            <div class="step-num-pill">04</div>
+            <h3>Care &amp; Guidance</h3>
+            <p>Dietary advice, herbal support &amp; post-care routines.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 07: FAQS (FREQUENTLY ASKED QUESTIONS)
+         ====================================================================== -->
+    <section class="treatment-faq-section" id="faqs">
+      <div class="container">
+        
+        <div class="find-care-header">
+          <span class="treatments-eyebrow">COMMON QUERIES</span>
+          <h2 class="treatments-h2">Frequently Asked Questions</h2>
+          <p class="treatments-subtext">
+            Clear, transparent answers to help you prepare for your healing journey at Nallayil.
+          </p>
+        </div>
+
+        <div class="faq-accordion-wrap">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-accordion-item">
+            <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+              <h3>How do I choose the right treatment for me?</h3>
+              <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-accordion-body">
+              <p>You do not need to diagnose yourself beforehand. If you are unsure, book a general consultation; our doctors will evaluate your constitution and recommend the ideal treatment path.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-accordion-item">
+            <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+              <h3>Do I need a consultation before starting a treatment?</h3>
+              <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-accordion-body">
+              <p>Yes. Classical Ayurveda requires an initial physician assessment to ensure the oils and intensity selected match your body type and medical history.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-accordion-item">
+            <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+              <h3>How long does a typical treatment session take?</h3>
+              <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-accordion-body">
+              <p>Individual daily therapies usually range from 45 to 90 minutes, while comprehensive Panchakarma programs span 7, 14, or 21 consecutive days.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-accordion-item">
+            <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+              <h3>Can therapies be personalized if I have multiple issues?</h3>
+              <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-accordion-body">
+              <p>Absolutely. Our treatment programs are entirely customized, addressing layered concerns such as lower back pain accompanied by chronic stress or digestive sluggishness.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-accordion-item">
+            <div class="faq-accordion-header" onclick="toggleFaqAccordion(this)">
+              <h3>How can I book an appointment?</h3>
+              <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-accordion-body">
+              <p>You can click the 'Book Now' button to fill out our simple booking sheet, or directly message our care team via WhatsApp for instant assistance.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 08: FINAL BOOKING CTA
+         ====================================================================== -->
+    <section class="treatment-cta-section" id="booking-cta">
+      <div class="container">
+        
+        <div class="treatment-cta-card">
+          <span class="treatments-eyebrow center-text">START YOUR HEALING</span>
+          <h2 class="treatments-h2 center-text">Ready to Begin Your Ayurveda Journey?</h2>
+          <p class="treatment-cta-subtext">
+            Take the first step towards renewed balance, pain-free mobility, and natural vitality.
+          </p>
+
+          <div class="treatment-cta-actions">
+            <a href="contact.html#booking-sheet" class="btn btn-treatment-primary">
+              <span>Book an Appointment</span> <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://wa.me/919447638838?text=Hi%20Nallayil%20Ayurveda,%20I%20would%20like%20to%20know%20more%20about%20your%20treatments" target="_blank" rel="noopener noreferrer" class="btn btn-treatment-secondary">
+              <i class="fab fa-whatsapp" style="color:#25D366; font-size:1.15rem;"></i>
+              <span>Chat with Care Team 💬</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PREMIER FOOTER SECTION
          ====================================================================== -->
     <footer class="site-footer-v2">
       <div class="container">
         
-        <!-- 4-Column Split Layout -->
+        <!-- Main Footer 4-Col Grid -->
         <div class="footer-v2-grid">
           
-          <!-- Column 1 — Nallayil Ayurveda -->
-          <div class="footer-v2-col">
-            <a href="index.html" class="footer-v2-brand-logo">
-              <div class="footer-v2-emblem">
-                <img src="images/nallayil logo.jpg" onerror="this.onerror=null; this.src='img/nallayil-logo.jpg';" alt="Nallayil Ayurveda" style="width:100%; height:100%; object-fit:cover;">
+          <!-- Col 1: Brand & Heritage -->
+          <div class="footer-v2-brand-col">
+            <div class="footer-v2-brand">
+              <div class="footer-v2-logo-wrap">
+                <img src="images/nallayil logo.jpg" onerror="this.onerror=null; this.src='img/nallayil-logo.jpg';" alt="Nallayil Ayurveda Logo">
               </div>
               <div>
-                <div class="footer-v2-brand-title">Nallayil Ayurveda</div>
-                <div class="footer-v2-brand-sub">Hospital &amp; Ayur Home • Kerala</div>
+                <span class="footer-v2-brand-name">NALLAYIL AYURVEDA</span>
+                <span class="footer-v2-brand-sub">HERITAGE HOSPITAL &amp; AYUR HOME</span>
               </div>
-            </a>
-            <p class="footer-v2-statement">
-              “Rooted in Kerala’s Ayurvedic tradition, Nallayil Ayurveda brings authentic healing and personalised care for modern well-being.”
+            </div>
+            <p class="footer-v2-bio">
+              A classical healing sanctuary in Manjeri, Malappuram. Dedicated to genuine Kerala Panchakarma, specialized Marma Chikitsa, and restorative living.
             </p>
-            <div class="footer-v2-social">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <div class="footer-v2-socials">
+              <a href="https://wa.me/919447638838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="tel:+919447638838" aria-label="Call Hospital Desk"><i class="fas fa-phone-alt"></i></a>
+              <a href="https://maps.google.com/?q=Nallayil+Ayurveda+Heritage+Hospital+Mullampara+Manjeri" target="_blank" rel="noopener noreferrer" aria-label="Google Maps Location"><i class="fas fa-map-marker-alt"></i></a>
             </div>
           </div>
 
-          <!-- Column 2 — Quick Links -->
+          <!-- Col 2: Navigation Links -->
           <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Quick Links</h4>
+            <h4 class="footer-v2-title">Quick Links</h4>
             <ul class="footer-v2-links">
-              <li><a href="about.html" class="footer-v2-link">About Us</a></li>
-              <li><a href="treatments.html" class="footer-v2-link">Treatments</a></li>
-              <li><a href="journal.html" class="footer-v2-link">Ayurveda Journal</a></li>
-              <li><a href="javascript:void(0)" onclick="openCareOfferModal()" class="footer-v2-link">Offers &amp; Updates</a></li>
-              <li><a href="contact.html" class="footer-v2-link">Contact Us</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="treatments.html">Treatments &amp; Therapies</a></li>
+              <li><a href="journal.html">Ayurveda Journal</a></li>
+              <li><a href="gallery.html">Photo Gallery</a></li>
+              <li><a href="contact.html">Contact &amp; Directions</a></li>
+              <li><a href="booking.html">Book Online Consultation</a></li>
             </ul>
           </div>
 
-          <!-- Column 3 — Treatments (CMS-driven list) -->
+          <!-- Col 3: Specialized Care -->
           <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Treatments</h4>
-            <ul class="footer-v2-links" id="footerTreatmentsList">
-              <li><a href="treatments.html#panchakarma" class="footer-v2-link">Panchakarma Detox</a></li>
-              <li><a href="treatments.html#abhyanga" class="footer-v2-link">Abhyanga Full-Body Rejuvenation</a></li>
-              <li><a href="treatments.html#shirodhara" class="footer-v2-link">Shirodhara Mind Therapy</a></li>
-              <li><a href="treatments.html#kizhi" class="footer-v2-link">Kizhi &amp; Potali Joint Care</a></li>
-              <li><a href="treatments.html#marma" class="footer-v2-link">Marma Spine &amp; Disc Care</a></li>
+            <h4 class="footer-v2-title">Healing Domains</h4>
+            <ul class="footer-v2-links">
+              <li><a href="treatments.html">Classical Panchakarma</a></li>
+              <li><a href="treatments.html">Spine &amp; Disc Rehabilitation</a></li>
+              <li><a href="treatments.html">Knee &amp; Joint Arthritis Care</a></li>
+              <li><a href="treatments.html">Marma &amp; Musculoskeletal</a></li>
+              <li><a href="treatments.html">Stress, Sleep &amp; Neurological</a></li>
+              <li><a href="treatments.html">Women's Postnatal &amp; Wellness</a></li>
             </ul>
-            <a href="treatments.html" class="footer-v2-cta-link">
-              <span>View All Treatments</span> <span style="font-size:1.1rem;">→</span>
-            </a>
           </div>
 
-          <!-- Column 4 — Contact -->
-          <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Contact</h4>
+          <!-- Col 4: Reach Us -->
+          <div class="footer-v2-col footer-v2-contact-col">
+            <h4 class="footer-v2-title">Hospital Location</h4>
             <ul class="footer-v2-contact-list">
               <li class="footer-v2-contact-item">
-                <i class="far fa-calendar-check"></i>
+                <i class="fas fa-hospital-alt"></i>
                 <div>
-                  <a href="contact.html#booking-sheet" style="font-weight:600; color:#4ADE80;">Book an Appointment → Booking Sheet</a>
-                </div>
-              </li>
-              <li class="footer-v2-contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                  <a href="https://maps.google.com/?q=NALLAYIL+AYUREDA+HERITAGE" target="_blank" rel="noopener noreferrer">Mullampara, Manjeri, Malappuram, Kerala 676121 (Google Maps)</a>
+                  <strong>Mullampara, Manjeri</strong><br>
+                  Malappuram District, Kerala - 676121
                 </div>
               </li>
               <li class="footer-v2-contact-item">
                 <i class="fas fa-phone-alt"></i>
                 <div>
-                  <a href="tel:+919447638838">+91 94476 38838</a> / <a href="tel:+919961003718">+91 99610 03718</a>
+                  <a href="tel:+919447638838">+91 94476 38838</a>
                 </div>
               </li>
               <li class="footer-v2-contact-item">
@@ -605,7 +928,7 @@
       <!-- Expanded Menu Items (Appear vertically above trigger) -->
       <div class="nallayil-care-menu" id="nallayilCareMenu">
         
-        <!-- Smart Offer Button (Rendered only when active offer exists in CMS) -->
+        <!-- Smart Offer Button -->
         <button type="button" class="care-action-btn btn-act-offer" id="careOfferBtn" onclick="openCareOfferModal()" style="display:none;">
           <i class="fas fa-gift"></i>
           <span>Offer <span class="care-offer-pulse">NEW</span></span>
@@ -665,6 +988,56 @@
         </div>
       </div>
     </div>
+
+  </div>
+
+  <!-- Shared Data & Core Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Interactive JavaScript for Category Tabs, Intent Filtering & FAQs -->
+  <script>
+    function switchTreatmentTab(tabId, btn) {
+      document.querySelectorAll('.menu-cat-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      document.querySelectorAll('.menu-category-panel').forEach(p => p.classList.remove('active'));
+      const activePanel = document.getElementById('panel-' + tabId);
+      if (activePanel) {
+        activePanel.classList.add('active');
+      }
+    }
+
+    function filterMenuCategory(targetCategory, pillElement) {
+      document.querySelectorAll('.care-intent-pill').forEach(p => p.classList.remove('active'));
+      if (pillElement) pillElement.classList.add('active');
+
+      const targetTabBtn = document.getElementById('tab-' + targetCategory);
+      if (targetTabBtn) {
+        switchTreatmentTab(targetCategory, targetTabBtn);
+      }
+
+      const menuSection = document.getElementById('complete-menu');
+      if (menuSection) {
+        menuSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function toggleFaqAccordion(headerElement) {
+      const item = headerElement.closest('.faq-accordion-item');
+      if (!item) return;
+      const isActive = item.classList.contains('active');
+      
+      // Close other open FAQ items for a clean single-open accordion feel
+      document.querySelectorAll('.faq-accordion-item').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    }
+  </script>
 
 </body>
 </html>

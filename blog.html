@@ -3,210 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayurveda Journal &amp; Health Insights | Nallayil Ayurveda • Manjeri, Kerala</title>
-  <meta name="description" content="Explore clinical insights, seasonal health tips, Panchakarma wisdom, and natural healing articles authored by senior Ayurvedic physicians at Nallayil Heritage Hospital.">
+  <title>The Ayurveda Journal | Wisdom for Mindful Living • Nallayil Ayurveda</title>
+  <meta name="description" content="Explore classical Ayurvedic insights, treatment guides, seasonal lifestyle practices, and natural wellness rituals curated by Nallayil Ayurveda Hospital in Kerala.">
   
+  <!-- Typography Fonts (Cormorant Garamond, Playfair Display, Plus Jakarta Sans, Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@600;700;800&family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=2.2">
   
-  <style>
-    .page-hero {
-      padding: 140px 0 65px;
-      background: linear-gradient(180deg, #0b2216 0%, #143322 100%);
-      color: #fff;
-      text-align: center;
-      position: relative;
-    }
-    .page-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .page-tag {
-      display: inline-block;
-      font-size: 0.82rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #E2E8E4;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      padding: 6px 18px;
-      border-radius: 50px;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-    .page-hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      margin-bottom: 14px;
-      color: #fefae0;
-    }
-    .page-hero p {
-      font-size: 1.05rem;
-      color: rgba(254, 250, 224, 0.85);
-      max-width: 680px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .journal-content-section {
-      padding: 70px 0 90px;
-      background: #fbf9f4;
-    }
-
-    .journal-category-bar {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 45px;
-    }
-    .category-btn {
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      border: 1px solid rgba(20, 51, 34, 0.15);
-      background: #ffffff;
-      color: #143322;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .category-btn.active, .category-btn:hover {
-      background: #143322;
-      color: #fefae0;
-      border-color: #143322;
-    }
-
-    .journal-full-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 32px;
-    }
-
-    .article-card {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(20, 51, 34, 0.05);
-      border: 1px solid rgba(20, 51, 34, 0.08);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-    }
-    .article-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 40px rgba(20, 51, 34, 0.1);
-      border-color: #087A24;
-    }
-    .article-badge {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #087A24;
-      background: rgba(8, 122, 36, 0.1);
-      padding: 4px 12px;
-      border-radius: 50px;
-      margin-bottom: 16px;
-      width: fit-content;
-    }
-    .article-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.38rem;
-      color: #143322;
-      line-height: 1.4;
-      margin-bottom: 12px;
-    }
-    .article-excerpt {
-      font-size: 0.95rem;
-      color: #4a5d4e;
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-    .article-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 16px;
-      border-top: 1px solid #eef2ed;
-      font-size: 0.85rem;
-      color: #7b8e7e;
-    }
-    .article-author {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .article-author i {
-      color: #087A24;
-    }
-
-    .cta-banner-box {
-      margin-top: 70px;
-      background: linear-gradient(135deg, #143322 0%, #1e4a33 100%);
-      border-radius: 24px;
-      padding: 50px 40px;
-      color: #fefae0;
-      text-align: center;
-      box-shadow: 0 16px 40px rgba(20, 51, 34, 0.15);
-    }
-    .cta-banner-box h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-      color: #fefae0;
-    }
-    .cta-banner-box p {
-      max-width: 600px;
-      margin: 0 auto 28px;
-      color: rgba(254, 250, 224, 0.85);
-      font-size: 1.05rem;
-    }
-    .cta-banner-btns {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-primary-booking {
-      background: #087A24;
-      color: #143322;
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .btn-primary-booking:hover {
-      background: #E2E8E4;
-      transform: translateY(-2px);
-    }
-    .btn-light-outline {
-      background: transparent;
-      color: #fefae0;
-      border: 1.5px solid rgba(254, 250, 224, 0.6);
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .btn-light-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: #fefae0;
-      transform: translateY(-2px);
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Global & Page-Specific Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=2.3">
+  <link rel="stylesheet" href="css/journal.css?v=2.3">
+  
   <style>
     /* Instant Anti-Flash CTA Rules: Desktop = 'Book Now', Mobile = 'Book' */
     .btn-text-mobile { display: none !important; }
@@ -217,10 +26,12 @@
     }
   </style>
 </head>
-<body class="inner-page">
+<body class="inner-page journal-page">
   <div class="content-layer">
 
-    <!-- Floating Liquid Glass Header with Integrated Smooth Expanding Mobile Menu -->
+    <!-- ======================================================================
+         FLOATING LIQUID GLASS HEADER & NAVIGATION BAR
+         ====================================================================== -->
     <header class="site-header liquid-glass compact-glass" id="navbar">
       <div class="container nav-container">
         
@@ -280,220 +91,327 @@
       </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero hero-window-banner" data-banner-page="journal" style="--hero-bg-img: url('images/card-wellness.jpg'); background-image: linear-gradient(180deg, rgba(9, 29, 20, 0.80) 0%, rgba(15, 42, 30, 0.88) 100%), url('images/card-wellness.jpg');">
+    <!-- ======================================================================
+         SECTION 01: JOURNAL HERO
+         ====================================================================== -->
+    <section class="journal-hero-section" id="hero">
       <div class="container">
-        <span class="page-tag">Clinical Wisdom &amp; Articles</span>
-        <h1>Ayurveda Journal</h1>
-        <p>Insights, classical therapeutic perspectives, and lifestyle regimens authored by our senior Ayurvedic physicians in Manjeri, Kerala.</p>
+        
+        <div class="journal-hero-content">
+          <span class="journal-eyebrow">THE NALLAYIL JOURNAL</span>
+          <h1 class="journal-hero-h1">Wisdom for Mindful Living</h1>
+          <p class="journal-hero-desc">
+            Explore classical Ayurvedic insights, treatment guides, seasonal lifestyle practices, and natural wellness rituals curated by Nallayil.
+          </p>
+        </div>
+
       </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="journal-content-section">
+    <!-- ======================================================================
+         SECTION 02: CATEGORY NAVIGATION (INTERACTIVE FILTER PILLS)
+         ====================================================================== -->
+    <section class="journal-category-nav-section" id="categories">
       <div class="container">
-
-        <!-- Topic Badges -->
-        <div class="journal-category-bar">
-          <button type="button" class="category-btn active" data-category="all">All Articles</button>
-          <button type="button" class="category-btn" data-category="Spine & Disc Care">Spine &amp; Disc Care</button>
-          <button type="button" class="category-btn" data-category="Panchakarma Detox">Panchakarma Detox</button>
-          <button type="button" class="category-btn" data-category="Joint & Arthritis">Joint &amp; Arthritis</button>
-          <button type="button" class="category-btn" data-category="Stress & Mind">Stress &amp; Mind</button>
-          <button type="button" class="category-btn" data-category="Seasonal Wellness">Seasonal Wellness</button>
-        </div>
-
-        <!-- 6 In-Depth Articles Grid -->
-        <div class="journal-full-grid">
-
-          <!-- Article 1 -->
-          <article class="article-card" id="marma-spine-relief">
-            <div>
-              <span class="article-badge">Spine &amp; Disc Care</span>
-              <h2 class="article-title">The Science of Marma: Non-Surgical Relief for Spine &amp; Disc Compressions</h2>
-              <p class="article-excerpt">
-                Disc herniation, lumbar spondylosis, and sciatica need not always culminate in surgery. Discover how ancient Marma point manipulation releases trapped nerves, decompresses vertebral gaps, and triggers deep natural healing.
-              </p>
-            </div>
-            <div class="article-meta">
-              <span class="article-author"><i class="fas fa-user-md"></i> Senior Marma Physician</span>
-              <span><i class="far fa-clock"></i> 6 min read</span>
-            </div>
-          </article>
-
-          <!-- Article 2 -->
-          <article class="article-card" id="panchakarma-cellular-detox">
-            <div>
-              <span class="article-badge">Panchakarma Detox</span>
-              <h2 class="article-title">Seasonal Panchakarma Detox: Restoring Cellular Balance &amp; Agni</h2>
-              <p class="article-excerpt">
-                Why systematic detoxification according to seasonal shifts (Ritu Sandhi) purges metabolic endotoxins (Ama), resets digestion, restores endocrine balance, and revitalizes deep tissue immunity (Ojas).
-              </p>
-            </div>
-            <div class="article-meta">
-              <span class="article-author"><i class="fas fa-user-md"></i> Panchakarma Specialist</span>
-              <span><i class="far fa-clock"></i> 7 min read</span>
-            </div>
-          </article>
-
-          <!-- Article 3 -->
-          <article class="article-card" id="prakriti-dosha-harmony">
-            <div>
-              <span class="article-badge">Stress &amp; Mind</span>
-              <h2 class="article-title">Prakriti &amp; Dosha Harmony: Navigating Chronic Modern Stress with Daily Regimens</h2>
-              <p class="article-excerpt">
-                Constant screen exposure and mental fatigue aggravate Prana Vata and Sadhaka Pitta. Learn how simple morning Dinacharya rituals, Brahmi rasayanas, and breathwork calm autonomic hyperarousal.
-              </p>
-            </div>
-            <div class="article-meta">
-              <span class="article-author"><i class="fas fa-user-md"></i> Holistic Health Desk</span>
-              <span><i class="far fa-clock"></i> 5 min read</span>
-            </div>
-          </article>
-
-          <!-- Article 4 -->
-          <article class="article-card" id="kizhi-potali-joint-care">
-            <div>
-              <span class="article-badge">Joint &amp; Arthritis</span>
-              <h2 class="article-title">Kizhi &amp; Potali Therapies: Soothing Joint Stiffness &amp; Osteoarthritis</h2>
-              <p class="article-excerpt">
-                How warm medicinal boluses infused with Choornams and freshly collected herbal leaves stimulate synovial circulation, lubricate degenerative cartilage, and alleviate persistent musculoskeletal pain.
-              </p>
-            </div>
-            <div class="article-meta">
-              <span class="article-author"><i class="fas fa-user-md"></i> Ayurvedic Physician</span>
-              <span><i class="far fa-clock"></i> 6 min read</span>
-            </div>
-          </article>
-
-          <!-- Article 5 -->
-          <article class="article-card" id="shirodhara-sleep-rewire">
-            <div>
-              <span class="article-badge">Neurological Wellness</span>
-              <h2 class="article-title">Shirodhara &amp; Sleep: Rewiring the Nervous System for Deep Rest</h2>
-              <p class="article-excerpt">
-                The neuro-vascular impact of a rhythmic, continuous stream of medicated herbal oils across the Ajna chakra: clinically shown to reduce cortisol, regulate melatonin release, and resolve chronic insomnia.
-              </p>
-            </div>
-            <div class="article-meta">
-              <span class="article-author"><i class="fas fa-user-md"></i> Clinical Neuro Desk</span>
-              <span><i class="far fa-clock"></i> 5 min read</span>
-            </div>
-          </article>
-
-          <!-- Article 6 -->
-          <article class="article-card" id="diet-ahara-medicine">
-            <div>
-              <span class="article-badge">Diet &amp; Digestion</span>
-              <h2 class="article-title">Ahara as Medicine: The Ayurvedic Principles of Eating for Your Agni</h2>
-              <p class="article-excerpt">
-                In classical Ayurveda, proper digestion precedes all pharmacological therapies. Uncover how matching your diet to your gut fire and digestive capability prevents endotoxin accumulation.
-              </p>
-            </div>
-            <div class="article-meta">
-              <span class="article-author"><i class="fas fa-user-md"></i> Dietary Consultant</span>
-              <span><i class="far fa-clock"></i> 8 min read</span>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- CTA Box -->
-        <div class="cta-banner-box">
-          <h2>Have Health Questions for Our Doctors?</h2>
-          <p>Book a personal diagnostic consultation at our Mullampara, Manjeri hospital and receive a personalized treatment and diet plan.</p>
-          <div class="cta-banner-btns">
-            <a href="booking.html" class="btn-primary-booking"><i class="fas fa-calendar-check"></i> Book Consultation</a>
-            <a href="contact.html" class="btn-light-outline"><i class="fas fa-envelope"></i> Send an Enquiry</a>
+        
+        <div class="journal-filter-pills-wrap">
+          <div class="journal-filter-pill active" onclick="filterJournalCategory('all', this)">
+            All Insights
+          </div>
+          <div class="journal-filter-pill" onclick="filterJournalCategory('treatment-guides', this)">
+            Treatment Guides
+          </div>
+          <div class="journal-filter-pill" onclick="filterJournalCategory('dosha-wisdom', this)">
+            Dosha Wisdom
+          </div>
+          <div class="journal-filter-pill" onclick="filterJournalCategory('daily-rituals', this)">
+            Daily Rituals
+          </div>
+          <div class="journal-filter-pill" onclick="filterJournalCategory('herbs-nutrition', this)">
+            Herbs &amp; Nutrition
+          </div>
+          <div class="journal-filter-pill" onclick="filterJournalCategory('mind-calm', this)">
+            Mind &amp; Calm
           </div>
         </div>
 
       </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    
-
-  </div>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
     <!-- ======================================================================
-         SECTION 9 — PREMIER AYURVEDA FOOTER (UPDATED SPECIFICATION)
+         SECTION 03: EDITOR’S SPOTLIGHT (FEATURED ARTICLE)
+         ====================================================================== -->
+    <section class="journal-spotlight-section" id="spotlight">
+      <div class="container">
+        
+        <div class="journal-spotlight-card">
+          
+          <!-- 50% Photo: Warm Medicated Oil Poured Into Traditional Bronze Vessel -->
+          <div class="spotlight-img-wrap">
+            <img src="images/card-therapies.jpg" onerror="this.onerror=null; this.src='images/card-wellness.jpg';" alt="Understanding Abhyanga - Warm Medicated Oil Poured in Traditional Bronze Vessel" loading="eager">
+          </div>
+
+          <!-- 50% Content -->
+          <div class="spotlight-content">
+            <span class="spotlight-meta-tag">01 — TREATMENT GUIDE • 6 MIN READ</span>
+            <h2 class="spotlight-title">Understanding Abhyanga: An Ayurvedic Approach to Cellular Renewal</h2>
+            <p class="spotlight-excerpt">
+              A deep dive into why rhythmic medicated warm oil therapy restores the nervous system and reverses fatigue, mobilizing deep ama toxins toward biological elimination channels.
+            </p>
+            <div>
+              <a href="journal/understanding-abhyanga.html" class="spotlight-read-btn">
+                <span>Read Article</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 04: LATEST ARTICLES GRID (THE DYNAMIC FEED)
+         ====================================================================== -->
+    <section class="journal-feed-section" id="articles-feed">
+      <div class="container">
+        
+        <div class="journal-feed-header">
+          <span class="journal-eyebrow">CHRONICLES OF HEALTH</span>
+          <h2 class="journal-h2" style="margin-bottom:0;">Latest Journal Articles</h2>
+        </div>
+
+        <div class="journal-articles-grid" id="journalArticlesGrid">
+          
+          <!-- Article 1: Dosha Wisdom -->
+          <article class="article-card" data-cat="dosha-wisdom">
+            <div class="article-card-img-wrap">
+              <img src="images/card-wellness.jpg" alt="Understanding the Three Doshas: Vata, Pitta &amp; Kapha" loading="lazy">
+            </div>
+            <div class="article-card-body">
+              <div>
+                <span class="article-card-meta">DOSHA WISDOM • 4 MIN READ</span>
+                <h3 class="article-card-title">Understanding the Three Doshas: Vata, Pitta &amp; Kapha</h3>
+                <p class="article-card-excerpt">
+                  Learn how these biological energies govern your physical and mental balance, and how to identify your unique Prakriti.
+                </p>
+              </div>
+              <a href="journal/understanding-three-doshas.html" class="article-card-link">
+                <span>Read Article</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2: Treatment Guides -->
+          <article class="article-card" data-cat="treatment-guides">
+            <div class="article-card-img-wrap">
+              <img src="images/card-marma.jpg" alt="The Science of Marma: Non-Surgical Relief for Spine &amp; Disc Compressions" loading="lazy">
+            </div>
+            <div class="article-card-body">
+              <div>
+                <span class="article-card-meta">TREATMENT GUIDES • 5 MIN READ</span>
+                <h3 class="article-card-title">The Science of Marma: Non-Surgical Relief for Spine &amp; Disc Compressions</h3>
+                <p class="article-card-excerpt">
+                  How vital neuro-muscular pressure points unlock stagnant prana energy, realign lumbar vertebra, and relieve trapped nerve roots naturally.
+                </p>
+              </div>
+              <a href="journal/science-of-marma.html" class="article-card-link">
+                <span>Read Article</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 3: Daily Rituals -->
+          <article class="article-card" data-cat="daily-rituals">
+            <div class="article-card-img-wrap">
+              <img src="images/slider-2.jpg" alt="Dinacharya: Morning Ayurvedic Rituals for Sustained Energy &amp; Calm" loading="lazy">
+            </div>
+            <div class="article-card-body">
+              <div>
+                <span class="article-card-meta">DAILY RITUALS • 5 MIN READ</span>
+                <h3 class="article-card-title">Dinacharya: Morning Ayurvedic Rituals for Sustained Energy &amp; Calm</h3>
+                <p class="article-card-excerpt">
+                  Transform your daily vitality with simple dawn practices: tongue scraping, warm water hydration, and sensory oiling.
+                </p>
+              </div>
+              <a href="journal/dinacharya-rituals.html" class="article-card-link">
+                <span>Read Article</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 4: Treatment Guides -->
+          <article class="article-card" data-cat="treatment-guides">
+            <div class="article-card-img-wrap">
+              <img src="images/card-panchakarma.jpg" alt="Seasonal Panchakarma Detox: Restoring Cellular Balance &amp; Digestive Agni" loading="lazy">
+            </div>
+            <div class="article-card-body">
+              <div>
+                <span class="article-card-meta">TREATMENT GUIDES • 7 MIN READ</span>
+                <h3 class="article-card-title">Seasonal Panchakarma Detox: Restoring Cellular Balance &amp; Digestive Agni</h3>
+                <p class="article-card-excerpt">
+                  Understanding why systematic five-fold detoxification resets metabolic fire and eliminates accumulated bio-toxins (Ama).
+                </p>
+              </div>
+              <a href="journal/seasonal-panchakarma.html" class="article-card-link">
+                <span>Read Article</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 5: Herbs & Nutrition -->
+          <article class="article-card" data-cat="herbs-nutrition">
+            <div class="article-card-img-wrap">
+              <img src="images/slider-1.jpg" alt="Healing Herbs of Kerala: The Power of Ashwagandha, Brahmi &amp; Triphala" loading="lazy">
+            </div>
+            <div class="article-card-body">
+              <div>
+                <span class="article-card-meta">HERBS &amp; NUTRITION • 6 MIN READ</span>
+                <h3 class="article-card-title">Healing Herbs of Kerala: The Power of Ashwagandha, Brahmi &amp; Triphala</h3>
+                <p class="article-card-excerpt">
+                  An exploration of sacred adaptogens and digestive tri-herbal cleansers used for millennia in classical medicine.
+                </p>
+              </div>
+              <a href="journal/healing-herbs.html" class="article-card-link">
+                <span>Read Article</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 6: Mind & Calm -->
+          <article class="article-card" data-cat="mind-calm">
+            <div class="article-card-img-wrap">
+              <img src="images/card-consultation.jpg" alt="Shirodhara &amp; Deep Sleep: Calming the Restless Modern Mind" loading="lazy">
+            </div>
+            <div class="article-card-body">
+              <div>
+                <span class="article-card-meta">MIND &amp; CALM • 5 MIN READ</span>
+                <h3 class="article-card-title">Shirodhara &amp; Deep Sleep: Calming the Restless Modern Mind</h3>
+                <p class="article-card-excerpt">
+                  The neuro-vascular impact of a rhythmic, continuous stream of warm medicated herbal oils across the forehead.
+                </p>
+              </div>
+              <a href="journal/shirodhara-sleep.html" class="article-card-link">
+                <span>Read Article</span> <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Clean Pagination: [ 1 ] 2 3 Next → -->
+        <div class="journal-pagination-wrap">
+          <a href="#articles-feed" class="journal-page-btn active">1</a>
+          <a href="#articles-feed" class="journal-page-btn">2</a>
+          <a href="#articles-feed" class="journal-page-btn">3</a>
+          <a href="#articles-feed" class="journal-page-btn next-btn">
+            <span>Next</span> <i class="fas fa-chevron-right" style="font-size:0.75rem;"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 05: MONTHLY WELLNESS DIGEST (NEWSLETTER CARD)
+         ====================================================================== -->
+    <section class="journal-newsletter-section" id="digest">
+      <div class="container">
+        
+        <div class="journal-newsletter-card">
+          <span class="journal-eyebrow center-text">EXCLUSIVE WELLNESS WISDOM</span>
+          <h3>The Seasonal Healing Digest</h3>
+          <p class="journal-newsletter-subtext">
+            Receive mindful Ayurvedic guidance, seasonal dietary advice, and clinic updates directly to your inbox once a month.
+          </p>
+
+          <form class="journal-newsletter-form" onsubmit="event.preventDefault(); handleDigestSubscribe();">
+            <input type="email" id="digestEmailInput" class="journal-newsletter-input" placeholder="Enter your email address..." required aria-label="Email address for wellness digest">
+            <button type="submit" class="journal-newsletter-btn">
+              <span>Subscribe</span> <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+
+          <div class="newsletter-success-box" id="digestSuccessBox">
+            <i class="fas fa-check-circle" style="margin-right:6px;"></i> Thank you for subscribing! You will receive our next monthly digest.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PREMIER FOOTER SECTION
          ====================================================================== -->
     <footer class="site-footer-v2">
       <div class="container">
         
-        <!-- 4-Column Split Layout -->
+        <!-- Main Footer 4-Col Grid -->
         <div class="footer-v2-grid">
           
-          <!-- Column 1 — Nallayil Ayurveda -->
-          <div class="footer-v2-col">
-            <a href="index.html" class="footer-v2-brand-logo">
-              <div class="footer-v2-emblem">
-                <img src="images/nallayil logo.jpg" onerror="this.onerror=null; this.src='img/nallayil-logo.jpg';" alt="Nallayil Ayurveda" style="width:100%; height:100%; object-fit:cover;">
+          <!-- Col 1: Brand & Heritage -->
+          <div class="footer-v2-brand-col">
+            <div class="footer-v2-brand">
+              <div class="footer-v2-logo-wrap">
+                <img src="images/nallayil logo.jpg" onerror="this.onerror=null; this.src='img/nallayil-logo.jpg';" alt="Nallayil Ayurveda Logo">
               </div>
               <div>
-                <div class="footer-v2-brand-title">Nallayil Ayurveda</div>
-                <div class="footer-v2-brand-sub">Hospital &amp; Ayur Home • Kerala</div>
+                <span class="footer-v2-brand-name">NALLAYIL AYURVEDA</span>
+                <span class="footer-v2-brand-sub">HERITAGE HOSPITAL &amp; AYUR HOME</span>
               </div>
-            </a>
-            <p class="footer-v2-statement">
-              “Rooted in Kerala’s Ayurvedic tradition, Nallayil Ayurveda brings authentic healing and personalised care for modern well-being.”
+            </div>
+            <p class="footer-v2-bio">
+              A classical healing sanctuary in Manjeri, Malappuram. Dedicated to genuine Kerala Panchakarma, specialized Marma Chikitsa, and restorative living.
             </p>
-            <div class="footer-v2-social">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <div class="footer-v2-socials">
+              <a href="https://wa.me/919447638838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="tel:+919447638838" aria-label="Call Hospital Desk"><i class="fas fa-phone-alt"></i></a>
+              <a href="https://maps.google.com/?q=Nallayil+Ayurveda+Heritage+Hospital+Mullampara+Manjeri" target="_blank" rel="noopener noreferrer" aria-label="Google Maps Location"><i class="fas fa-map-marker-alt"></i></a>
             </div>
           </div>
 
-          <!-- Column 2 — Quick Links -->
+          <!-- Col 2: Navigation Links -->
           <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Quick Links</h4>
+            <h4 class="footer-v2-title">Quick Links</h4>
             <ul class="footer-v2-links">
-              <li><a href="about.html" class="footer-v2-link">About Us</a></li>
-              <li><a href="treatments.html" class="footer-v2-link">Treatments</a></li>
-              <li><a href="journal.html" class="footer-v2-link">Ayurveda Journal</a></li>
-              <li><a href="javascript:void(0)" onclick="openCareOfferModal()" class="footer-v2-link">Offers &amp; Updates</a></li>
-              <li><a href="contact.html" class="footer-v2-link">Contact Us</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="treatments.html">Treatments &amp; Therapies</a></li>
+              <li><a href="journal.html">Ayurveda Journal</a></li>
+              <li><a href="gallery.html">Photo Gallery</a></li>
+              <li><a href="contact.html">Contact &amp; Directions</a></li>
+              <li><a href="booking.html">Book Online Consultation</a></li>
             </ul>
           </div>
 
-          <!-- Column 3 — Treatments (CMS-driven list) -->
+          <!-- Col 3: Specialized Care -->
           <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Treatments</h4>
-            <ul class="footer-v2-links" id="footerTreatmentsList">
-              <li><a href="treatments.html#panchakarma" class="footer-v2-link">Panchakarma Detox</a></li>
-              <li><a href="treatments.html#abhyanga" class="footer-v2-link">Abhyanga Full-Body Rejuvenation</a></li>
-              <li><a href="treatments.html#shirodhara" class="footer-v2-link">Shirodhara Mind Therapy</a></li>
-              <li><a href="treatments.html#kizhi" class="footer-v2-link">Kizhi &amp; Potali Joint Care</a></li>
-              <li><a href="treatments.html#marma" class="footer-v2-link">Marma Spine &amp; Disc Care</a></li>
+            <h4 class="footer-v2-title">Healing Domains</h4>
+            <ul class="footer-v2-links">
+              <li><a href="treatments.html">Classical Panchakarma</a></li>
+              <li><a href="treatments.html">Spine &amp; Disc Rehabilitation</a></li>
+              <li><a href="treatments.html">Knee &amp; Joint Arthritis Care</a></li>
+              <li><a href="treatments.html">Marma &amp; Musculoskeletal</a></li>
+              <li><a href="treatments.html">Stress, Sleep &amp; Neurological</a></li>
+              <li><a href="treatments.html">Women's Postnatal &amp; Wellness</a></li>
             </ul>
-            <a href="treatments.html" class="footer-v2-cta-link">
-              <span>View All Treatments</span> <span style="font-size:1.1rem;">→</span>
-            </a>
           </div>
 
-          <!-- Column 4 — Contact -->
-          <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Contact</h4>
+          <!-- Col 4: Reach Us -->
+          <div class="footer-v2-col footer-v2-contact-col">
+            <h4 class="footer-v2-title">Hospital Location</h4>
             <ul class="footer-v2-contact-list">
               <li class="footer-v2-contact-item">
-                <i class="far fa-calendar-check"></i>
+                <i class="fas fa-hospital-alt"></i>
                 <div>
-                  <a href="contact.html#booking-sheet" style="font-weight:600; color:#4ADE80;">Book an Appointment → Booking Sheet</a>
-                </div>
-              </li>
-              <li class="footer-v2-contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                  <a href="https://maps.google.com/?q=NALLAYIL+AYUREDA+HERITAGE" target="_blank" rel="noopener noreferrer">Mullampara, Manjeri, Malappuram, Kerala 676121 (Google Maps)</a>
+                  <strong>Mullampara, Manjeri</strong><br>
+                  Malappuram District, Kerala - 676121
                 </div>
               </li>
               <li class="footer-v2-contact-item">
                 <i class="fas fa-phone-alt"></i>
                 <div>
-                  <a href="tel:+919447638838">+91 94476 38838</a> / <a href="tel:+919961003718">+91 99610 03718</a>
+                  <a href="tel:+919447638838">+91 94476 38838</a>
                 </div>
               </li>
               <li class="footer-v2-contact-item">
@@ -551,7 +469,7 @@
       <!-- Expanded Menu Items (Appear vertically above trigger) -->
       <div class="nallayil-care-menu" id="nallayilCareMenu">
         
-        <!-- Smart Offer Button (Rendered only when active offer exists in CMS) -->
+        <!-- Smart Offer Button -->
         <button type="button" class="care-action-btn btn-act-offer" id="careOfferBtn" onclick="openCareOfferModal()" style="display:none;">
           <i class="fas fa-gift"></i>
           <span>Offer <span class="care-offer-pulse">NEW</span></span>
@@ -611,6 +529,42 @@
         </div>
       </div>
     </div>
+
+  </div>
+
+  <!-- Shared Data & Core Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Interactive JavaScript for Category Filter & Newsletter -->
+  <script>
+    function filterJournalCategory(category, pillElement) {
+      document.querySelectorAll('.journal-filter-pill').forEach(p => p.classList.remove('active'));
+      if (pillElement) pillElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.article-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        if (category === 'all' || cat === category) {
+          card.style.display = 'flex';
+          card.style.animation = 'panelFadeIn 0.35s ease-out';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function handleDigestSubscribe() {
+      const emailInput = document.getElementById('digestEmailInput');
+      const successBox = document.getElementById('digestSuccessBox');
+      if (emailInput && emailInput.value) {
+        if (successBox) {
+          successBox.style.display = 'block';
+        }
+        emailInput.value = '';
+      }
+    }
+  </script>
 
 </body>
 </html>

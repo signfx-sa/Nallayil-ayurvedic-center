@@ -3,230 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Nallayil Ayurveda Heritage Hospital & Ayur Home • Manjeri</title>
-  <meta name="description" content="Learn about Nallayil Ayurveda Heritage Hospital & Ayur Home in Mullampara, Manjeri. Our medical heritage, holistic healing philosophy, doctors, and inpatient facilities.">
+  <title>About Us | Nallayil Ayurveda Heritage Hospital &amp; Ayur Home</title>
+  <meta name="description" content="Rooted in classical Kerala Ayurveda, Nallayil Ayurveda in Manjeri offers personalized inpatient and outpatient healing, guided by deep medical wisdom and compassionate care.">
   
+  <!-- Preconnect & Typography Fonts (Cormorant Garamond, Playfair Display, Plus Jakarta Sans, Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@600;700;800&family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=2.2">
   
-  <style>
-    .page-hero {
-      padding: 140px 0 65px;
-      background: linear-gradient(180deg, #0b2216 0%, #143322 100%);
-      color: #fff;
-      text-align: center;
-      position: relative;
-    }
-    .page-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .page-tag {
-      display: inline-block;
-      font-size: 0.82rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #E2E8E4;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      padding: 6px 18px;
-      border-radius: 50px;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-    .page-hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      margin-bottom: 14px;
-      color: #fefae0;
-    }
-    .page-hero p {
-      font-size: 1.05rem;
-      color: rgba(254, 250, 224, 0.85);
-      max-width: 680px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .about-main-section {
-      padding: 80px 0 90px;
-      background: #fbf9f4;
-    }
-
-    .about-story-row {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
-      align-items: center;
-      margin-bottom: 80px;
-    }
-    @media (max-width: 900px) {
-      .about-story-row {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-    }
-    .about-story-text h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.2rem;
-      color: #143322;
-      margin-bottom: 18px;
-    }
-    .about-story-text p {
-      font-size: 1rem;
-      color: #4a5d4e;
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
-    .about-img-box {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(20, 51, 34, 0.12);
-      border: 3px solid #ffffff;
-    }
-    .about-img-box img {
-      width: 100%;
-      height: 100%;
-      min-height: 380px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 50px;
-    }
-    .value-card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(20, 51, 34, 0.05);
-      border: 1px solid rgba(20, 51, 34, 0.07);
-    }
-    .value-icon {
-      font-size: 1.8rem;
-      color: #087A24;
-      margin-bottom: 14px;
-    }
-    .value-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: #143322;
-      margin-bottom: 10px;
-    }
-    .value-card p {
-      font-size: 0.92rem;
-      color: #4a5d4e;
-      line-height: 1.6;
-    }
-
-    .facilities-section {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 50px 40px;
-      margin-top: 70px;
-      box-shadow: 0 12px 35px rgba(20, 51, 34, 0.06);
-      border: 1px solid rgba(20, 51, 34, 0.08);
-    }
-    .facilities-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 30px;
-    }
-    .facility-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      background: #fbf9f4;
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(20, 51, 34, 0.06);
-    }
-    .facility-item i {
-      color: #143322;
-      font-size: 1.4rem;
-      margin-top: 3px;
-    }
-    .facility-item h4 {
-      margin: 0 0 6px;
-      color: #143322;
-      font-size: 1.05rem;
-    }
-    .facility-item p {
-      margin: 0;
-      color: #4a5d4e;
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-
-    .cta-banner-box {
-      margin-top: 70px;
-      background: linear-gradient(135deg, #143322 0%, #1e4a33 100%);
-      border-radius: 24px;
-      padding: 50px 40px;
-      color: #fefae0;
-      text-align: center;
-      box-shadow: 0 16px 40px rgba(20, 51, 34, 0.15);
-    }
-    .cta-banner-box h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-      color: #fefae0;
-    }
-    .cta-banner-box p {
-      max-width: 600px;
-      margin: 0 auto 28px;
-      color: rgba(254, 250, 224, 0.85);
-      font-size: 1.05rem;
-    }
-    .cta-banner-btns {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-primary-booking {
-      background: #087A24;
-      color: #143322;
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .btn-primary-booking:hover {
-      background: #E2E8E4;
-      transform: translateY(-2px);
-    }
-    .btn-light-outline {
-      background: transparent;
-      color: #fefae0;
-      border: 1.5px solid rgba(254, 250, 224, 0.6);
-      padding: 12px 28px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .btn-light-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: #fefae0;
-      transform: translateY(-2px);
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Global & Page-Specific Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css?v=2.3">
+  <link rel="stylesheet" href="../css/about.css?v=2.3">
+  
   <style>
     /* Instant Anti-Flash CTA Rules: Desktop = 'Book Now', Mobile = 'Book' */
     .btn-text-mobile { display: none !important; }
@@ -237,10 +26,12 @@
     }
   </style>
 </head>
-<body class="inner-page">
+<body class="inner-page about-us-page">
   <div class="content-layer">
 
-    <!-- Floating Liquid Glass Header with Integrated Smooth Expanding Mobile Menu -->
+    <!-- ======================================================================
+         FLOATING LIQUID GLASS HEADER & NAVIGATION BAR
+         ====================================================================== -->
     <header class="site-header liquid-glass compact-glass" id="navbar">
       <div class="container nav-container">
         
@@ -300,225 +91,520 @@
       </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero hero-window-banner" data-banner-page="about" style="--hero-bg-img: url('../images/about-nallayil.jpg'); background-image: linear-gradient(180deg, rgba(9, 29, 20, 0.80) 0%, rgba(15, 42, 30, 0.88) 100%), url('../images/about-nallayil.jpg');">
+    <!-- ======================================================================
+         SECTION 01: ABOUT NALLAYIL — HERO
+         ====================================================================== -->
+    <section class="about-hero-section" id="hero">
       <div class="container">
-        <span class="page-tag">Our Living Heritage</span>
-        <h1>About Nallayil Ayurveda</h1>
-        <p>A tradition of healing born in Kerala, dedicated to restoring harmony in mind, body, and spirit through classical Ayurvedic medical wisdom and genuine human empathy.</p>
+        
+        <div class="about-hero-header">
+          <span class="about-eyebrow">ABOUT NALLAYIL</span>
+          <h1 class="about-hero-h1">
+            Rooted in Ayurveda.<br>
+            <span class="about-hero-h1-accent">Guided by Care.</span>
+          </h1>
+          <p class="about-hero-lead">
+            A sanctuary devoted to the timeless wisdom of classical Kerala Ayurveda, shaped by personalized care, grounded values, and an expansive vision for holistic living.
+          </p>
+        </div>
+
+        <!-- Panoramic Visual Anchor with Soft Organic Rounded Borders (border-radius: 32px) -->
+        <div class="about-hero-visual-card">
+          <img src="../images/slider-1.jpg" onerror="this.onerror=null; this.src='../images/Slider Image 2.jpeg';" alt="Nallayil Ayurveda Sanctuary Panoramic View" class="about-hero-panoramic-img" loading="eager">
+          <div class="about-hero-badge-float">
+            <i class="fas fa-leaf"></i>
+            <span>Classical Kerala Sanctuary • Manjeri</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="about-main-section">
+    <!-- ======================================================================
+         SECTION 02: OUR STORY (HISTORY & 5+ YEARS LEGACY)
+         ====================================================================== -->
+    <section class="about-story-section" id="story">
       <div class="container">
+        
+        <div class="about-story-grid">
+          
+          <!-- Left Column: Trust Metrics & Milestones -->
+          <div class="story-metrics-panel">
+            <span class="about-eyebrow" style="margin-bottom:8px;">OUR MILESTONES</span>
+            <h3 style="font-family:'Cormorant Garamond', Georgia, serif; font-size:1.9rem; color:#1B3B2B; margin-bottom:24px;">Pillars of Sacred Trust</h3>
 
-        <!-- Story Row -->
-        <div class="about-story-row">
-          <div class="about-story-text">
-            <span style="font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #087A24; display: block; margin-bottom: 8px;">The Healing Journey</span>
-            <h2>Ancient Foundations, Modern Clinical Standards</h2>
-            <p>
-              Located in the peaceful town of Mullampara, Manjeri, <strong>Nallayil Ayurveda Heritage Hospital &amp; Ayur Home</strong> was founded with an unyielding commitment: to practice Ayurveda in its purest, most authentic classical form, while maintaining the highest diagnostic rigour of modern medicine.
-            </p>
-            <p>
-              Under the guidance of experienced Ayurvedic physicians and Marma Chikitsa masters, our hospital has become a beacon of non-surgical recovery for disc herniation, sciatica, osteoarthritis, stroke rehabilitation, and chronic lifestyle disorders.
-            </p>
-            <p>
-              We view healing not as a temporary suppression of symptoms, but as a deep recalibration of your biological Agni (digestive fire) and Tridoshas (Vata, Pitta, Kapha).
-            </p>
-          </div>
-
-          <div class="about-img-box">
-            <img src="../images/about-nallayil.jpg" onerror="this.onerror=null; this.src='../images/about-nallayil.jpeg';" alt="Nallayil Ayurveda Sanctuary" loading="lazy">
-          </div>
-        </div>
-
-        <!-- 4 Core Guiding Pillars / Values -->
-        <div style="text-align: center; margin-top: 40px;">
-          <span style="font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #087A24;">Our Guiding Principles</span>
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #143322; margin-top: 8px;">What Defines Nallayil</h2>
-        </div>
-
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-seedling"></i></div>
-            <h3>Shuddhata (Purity)</h3>
-            <p>We source only pure, pesticide-free, wild-crafted herbs and prepare classical Kashayams in traditional brass and clay vessels to preserve maximum prana and medicinal potency.</p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-heart"></i></div>
-            <h3>Karuna (Compassion)</h3>
-            <p>Every patient is heard with patience and treated like family. Our physicians dedicate ample consultation time to listen to your entire health journey and emotional well-being.</p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-stethoscope"></i></div>
-            <h3>Nischayam (Diagnostic Precision)</h3>
-            <p>We integrate classical Ashtasthana Pariksha (eight-fold examination including pulse diagnosis) with contemporary MRI scans and blood tests for foolproof clinical diagnosis.</p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon"><i class="fas fa-home"></i></div>
-            <h3>Sukhada (Ayur Home Sanctuary)</h3>
-            <p>Our inpatient Ayur Home rooms provide a serene, tranquil haven where peaceful sleep, Ayurvedic organic nutrition, and meditative silence speed up cellular regeneration.</p>
-          </div>
-        </div>
-
-        <!-- Facilities & Infrastructure -->
-        <div class="facilities-section">
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.9rem; color: #143322; text-align: center; margin-bottom: 10px;">Our Hospital Campus &amp; Infrastructure</h2>
-          <p style="text-align: center; color: #4a5d4e; max-width: 650px; margin: 0 auto;">Equipped with comprehensive facilities designed for comfortable long-stay inpatient recoveries and outpatient consultations.</p>
-
-          <div class="facilities-grid">
-            <div class="facility-item">
-              <i class="fas fa-bed"></i>
-              <div>
-                <h4>Inpatient (IP) Ayur Home Rooms</h4>
-                <p>Comfortable, air-conditioned and non-AC patient suites with en-suite bathrooms, serene natural light, and companion accommodation.</p>
+            <!-- Pillar Badge 1: Founded Near Pattikkad -->
+            <div class="story-metric-item">
+              <div class="story-metric-icon-wrap">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="story-metric-content">
+                <h4>Founded Near Pattikkad</h4>
+                <p>Originating in Pattikkad, Perinthalmanna with an uncompromising commitment to pure classical medicine.</p>
               </div>
             </div>
 
-            <div class="facility-item">
-              <i class="fas fa-hot-tub"></i>
-              <div>
-                <h4>Classical Panchakarma Theatres</h4>
-                <p>Private, hygienic therapy suites furnished with authentic medicinal Neem and Jackfruit wood Dhronis and copper Shirodhara vessels.</p>
+            <!-- Pillar Badge 2: 5+ Years Dedicated Practice -->
+            <div class="story-metric-item">
+              <div class="story-metric-icon-wrap">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <div class="story-metric-content">
+                <h4>5+ Years of Dedicated Practice</h4>
+                <p>Over half a decade of clinical discipline, empathetic patient consultations, and authentic healing lineage.</p>
               </div>
             </div>
 
-            <div class="facility-item">
+            <!-- Pillar Badge 3: 15,000+ Lives Restored -->
+            <div class="story-metric-item">
+              <div class="story-metric-icon-wrap">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <div class="story-metric-content">
+                <h4>15,000+ Lives Restored</h4>
+                <p>Individuals guided back to vitality and chronic relief through personalized therapies and lifestyle balance.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Narrative Prose -->
+          <div class="story-narrative-panel">
+            <span class="about-eyebrow">OUR JOURNEY</span>
+            <h2 class="about-h2">From Humble Beginnings to a Growing Legacy</h2>
+            
+            <p class="about-body-text">
+              Nallayil Ayurveda began its journey near Pattikkad, Perinthalmanna, with a singular dedication: to preserve and practice classical Kerala Ayurveda in its purest, most authentic form.
+            </p>
+            <p class="about-body-text">
+              Over the past 5+ years, what started as a focused center for genuine healing has grown into a trusted destination for thousands seeking natural equilibrium and relief from chronic concerns. Every chapter of our growth has stayed true to that first promise—uncompromising integrity in our medicines, deep empathy in our consultations, and an unhurried approach to restorative healing.
+            </p>
+
+            <div class="story-quote-card">
+              “Every chapter of our growth has stayed true to that first promise—uncompromising integrity in our medicines and an unhurried approach to restorative healing.”
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 03: MORE THAN AYURVEDA (BRAND VISION & HORIZONS)
+         ====================================================================== -->
+    <section class="about-vision-section" id="vision">
+      <div class="container">
+        
+        <div class="about-vision-card">
+          <span class="about-eyebrow center-text">THE EXPANDING VISION</span>
+          <h2 class="about-h2 center-text" style="max-width:760px; margin:0 auto 24px;">More Than Ayurveda: An Ecosystem of Holistic Well-being</h2>
+          
+          <p class="about-vision-text-lead">
+            At Nallayil, our vision reaches far beyond the walls of a traditional clinic. We view Ayurveda not merely as a treatment regimen, but as an integrated way of living.
+          </p>
+          <p class="about-vision-text-body">
+            Today, the Nallayil brand is expanding across healthcare, wellness living, mindful hospitality, and classical medicine manufacturing—building an interconnected ecosystem where authentic ancient heritage seamlessly serves the modern world.
+          </p>
+
+          <div class="about-vision-pillars-row">
+            <div class="vision-pillar-chip">
+              <i class="fas fa-clinic-medical"></i>
+              <span>Integrated Healthcare</span>
+            </div>
+            <div class="vision-pillar-chip">
+              <i class="fas fa-home"></i>
+              <span>Wellness Living</span>
+            </div>
+            <div class="vision-pillar-chip">
+              <i class="fas fa-spa"></i>
+              <span>Mindful Hospitality</span>
+            </div>
+            <div class="vision-pillar-chip">
               <i class="fas fa-mortar-pestle"></i>
-              <div>
-                <h4>In-House Ayurvedic Pharmacy</h4>
-                <p>Fully stocked with classical Arishtams, Asavams, Ghrithams, Tailams, and fresh decoctions formulated according to authentic pharmacopoeia.</p>
-              </div>
+              <span>Classical Medicine Manufacturing</span>
             </div>
-
-            <div class="facility-item">
-              <i class="fas fa-utensils"></i>
-              <div>
-                <h4>Customized Pathya Diet Kitchen</h4>
-                <p>Nutritious, organic Ayurvedic meals prepared fresh daily, strictly customized according to each patient's doctor-prescribed dietary rules.</p>
-              </div>
-            </div>
-
-            <div class="facility-item">
-              <i class="fas fa-user-nurse"></i>
-              <div>
-                <h4>24/7 Nursing &amp; Medical Care</h4>
-                <p>Round-the-clock attending medical staff, senior physician rounds, emergency assistance, and personalized therapy scheduling.</p>
-              </div>
-            </div>
-
-            <div class="facility-item">
-              <i class="fas fa-parking"></i>
-              <div>
-                <h4>Peaceful Campus &amp; Parking</h4>
-                <p>Spacious, tree-lined premises in Mullampara, Manjeri, away from highway noise, featuring ample parking space and easy wheelchair access.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="cta-banner-box">
-          <h2>Begin Your Healing Journey With Us</h2>
-          <p>Schedule a personal one-on-one consultation with our Chief Ayurvedic Physician to chart out your tailored recovery plan.</p>
-          <div class="cta-banner-btns">
-            <a href="../booking.html" class="btn-primary-booking"><i class="fas fa-calendar-check"></i> Book an Appointment</a>
-            <a href="../treatments.html" class="btn-light-outline"><i class="fas fa-spa"></i> Explore Treatments</a>
-            <a href="../contact.html" class="btn-light-outline"><i class="fas fa-map-marker-alt"></i> Contact Hospital</a>
           </div>
         </div>
 
       </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    
-
-  </div>
-  <script src="../js/data.js"></script>
-  <script src="../js/main.js"></script>
     <!-- ======================================================================
-         SECTION 9 — PREMIER AYURVEDA FOOTER (UPDATED SPECIFICATION)
+         SECTION 04: OUR GROWING PROJECTS (ECOSYSTEM PORTFOLIO)
+         ====================================================================== -->
+    <section class="about-projects-section" id="projects">
+      <div class="container">
+        
+        <div class="about-projects-header">
+          <span class="about-eyebrow center-text">ECOSYSTEM PORTFOLIO</span>
+          <h2 class="about-h2 center-text">Our Growing Projects</h2>
+          <p class="about-section-subtext" style="margin-bottom:0;">
+            A holistic continuum spanning therapeutic inpatient care, residential recovery, medical tourism, authentic pharmacology, and sustainable retreats.
+          </p>
+        </div>
+
+        <div class="projects-5-grid">
+          
+          <!-- Project Card 1: Ayurveda Heritage Hospital -->
+          <div class="project-ecosystem-card">
+            <div>
+              <div class="project-card-top">
+                <div class="project-icon-box">
+                  <i class="fas fa-hospital"></i>
+                </div>
+                <span class="project-status-tag tag-active">ACTIVE / OPERATIONAL</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Ayurveda Heritage Hospital</h3>
+                <p>Our flagship clinical center offering authentic inpatient and outpatient therapies, classical Panchakarma, and specialized Marma care.</p>
+              </div>
+            </div>
+            <div class="project-card-pill-meta">
+              <i class="fas fa-check-circle" style="color:#1B3B2B;"></i> Inpatient &amp; Outpatient Sanctuary
+            </div>
+          </div>
+
+          <!-- Project Card 2: AyurHome -->
+          <div class="project-ecosystem-card">
+            <div>
+              <div class="project-card-top">
+                <div class="project-icon-box">
+                  <i class="fas fa-home"></i>
+                </div>
+                <span class="project-status-tag tag-upcoming">UPCOMING / IN DEVELOPMENT</span>
+              </div>
+              <div class="project-card-body">
+                <h3>AyurHome</h3>
+                <p>A residential healing sanctuary tailored for long-term restorative stays, lifestyle retreats, and immersive Ayurvedic living.</p>
+              </div>
+            </div>
+            <div class="project-card-pill-meta">
+              <i class="fas fa-seedling" style="color:#8E6F27;"></i> Residential Convalescence
+            </div>
+          </div>
+
+          <!-- Project Card 3: Medi Tourism -->
+          <div class="project-ecosystem-card">
+            <div>
+              <div class="project-card-top">
+                <div class="project-icon-box">
+                  <i class="fas fa-globe-asia"></i>
+                </div>
+                <span class="project-status-tag tag-upcoming">UPCOMING / IN DEVELOPMENT</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Medi Tourism</h3>
+                <p>Curated global wellness journeys introducing international seekers to traditional Kerala Ayurveda in serene, nature-rich settings.</p>
+              </div>
+            </div>
+            <div class="project-card-pill-meta">
+              <i class="fas fa-plane-departure" style="color:#8E6F27;"></i> Global Wellness Concierge
+            </div>
+          </div>
+
+          <!-- Project Card 4: Ayurvedic Medicine Manufacturing Unit -->
+          <div class="project-ecosystem-card">
+            <div>
+              <div class="project-card-top">
+                <div class="project-icon-box">
+                  <i class="fas fa-mortar-pestle"></i>
+                </div>
+                <span class="project-status-tag tag-dev">IN DEVELOPMENT</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Ayurvedic Medicine Manufacturing Unit</h3>
+                <p>State-of-the-art production facility dedicated to crafting classical Kashayams, Thailams, and proprietary formulations with strict quality control.</p>
+              </div>
+            </div>
+            <div class="project-card-pill-meta">
+              <i class="fas fa-award" style="color:#4A503F;"></i> Classical Quality Assurance
+            </div>
+          </div>
+
+          <!-- Project Card 5: Ayur Resort -->
+          <div class="project-ecosystem-card">
+            <div>
+              <div class="project-card-top">
+                <div class="project-icon-box">
+                  <i class="fas fa-mountain"></i>
+                </div>
+                <span class="project-status-tag tag-vision">UPCOMING VISION</span>
+              </div>
+              <div class="project-card-body">
+                <h3>Ayur Resort</h3>
+                <p>A premium hospitality retreat blending sustainable luxury, holistic therapies, yoga, and nourishing organic cuisine.</p>
+              </div>
+            </div>
+            <div class="project-card-pill-meta">
+              <i class="fas fa-leaf" style="color:#2D5F43;"></i> Sustainable Mindful Luxury
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 05: OUR APPROACH (PILLARS OF CARE)
+         ====================================================================== -->
+    <section class="about-approach-section" id="approach">
+      <div class="container">
+        
+        <div class="about-approach-header">
+          <span class="about-eyebrow center-text">CORE METHODOLOGY</span>
+          <h2 class="about-h2 center-text">The Nallayil Approach to Healing</h2>
+          <p class="about-section-subtext" style="margin-bottom:0;">
+            Grounding classical Vedic texts with personalized precision and clinical vigilance to restore constitutional harmony.
+          </p>
+        </div>
+
+        <div class="approach-4-grid">
+          
+          <!-- Pillar 1: Traditional Ayurveda -->
+          <div class="approach-col-card">
+            <div class="approach-num">01</div>
+            <h3>Traditional Ayurveda</h3>
+            <p>Strict adherence to classical Kerala formulations, Ashtanga Hridaya tenets, and authentic therapeutic disciplines.</p>
+          </div>
+
+          <!-- Pillar 2: Personalised Care -->
+          <div class="approach-col-card">
+            <div class="approach-num">02</div>
+            <h3>Personalised Care</h3>
+            <p>Every treatment plan begins with an in-depth Prakriti assessment, addressing root imbalances rather than isolated symptoms.</p>
+          </div>
+
+          <!-- Pillar 3: Modern Patient Experience -->
+          <div class="approach-col-card">
+            <div class="approach-num">03</div>
+            <h3>Modern Patient Experience</h3>
+            <p>Punctual scheduling, peaceful private suites, intuitive digital access, and complete consultation transparency.</p>
+          </div>
+
+          <!-- Pillar 4: Quality & Safety -->
+          <div class="approach-col-card">
+            <div class="approach-num">04</div>
+            <h3>Quality &amp; Safety</h3>
+            <p>Uncompromised clinical-grade hygiene, certified herbal ingredients, and continuous therapist oversight.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 06: MEET THE FOUNDER
+         ====================================================================== -->
+    <section class="about-founder-section" id="founder">
+      <div class="container">
+        
+        <div class="about-founder-split">
+          
+          <!-- Editorial Founder Portrait -->
+          <div class="founder-portrait-frame">
+            <img src="../images/about-nallayil.jpg" onerror="this.onerror=null; this.src='../images/about-nallayil.jpeg';" alt="Basith Ibrahim — Founder, Nallayil Ayurveda" class="founder-portrait-img" loading="lazy">
+          </div>
+
+          <!-- Vision Statement & Narrative -->
+          <div class="founder-info-panel">
+            <span class="about-eyebrow">VISIONARY LEADERSHIP</span>
+            <h2 class="founder-name-h2">Basith Ibrahim</h2>
+            <span class="founder-title-tag">Founder, Nallayil Ayurveda</span>
+
+            <div class="founder-quote-prose">
+              <p>
+                “Nallayil Ayurveda was born from a deep conviction that true healing does not come from hurried interventions, but from returning to the timeless rhythms of nature. Our mission has always been simple: honor the classical depth of Kerala Ayurveda while building a world-class, systematic institution that people can trust with their eyes closed.
+              </p>
+              <p>
+                As we grow from our roots in Malappuram to an expansive wellness ecosystem, our compass remains unchanged—treating every individual with genuine care, authentic medicines, and quiet excellence.”
+              </p>
+            </div>
+
+            <div class="founder-signature-tag">
+              — Basith Ibrahim, Founder
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 07: OUR CARE TEAMS
+         ====================================================================== -->
+    <section class="about-teams-section" id="teams">
+      <div class="container">
+        
+        <div class="about-teams-header">
+          <span class="about-eyebrow center-text">THE PEOPLE BEHIND NALLAYIL</span>
+          <h2 class="about-h2 center-text">Guided by Physicians. Driven by Care.</h2>
+          <p class="about-section-subtext" style="margin-bottom:0;">
+            A compassionate collective dedicated to holistic diagnosis, therapeutic accuracy, and unconditional hospitality.
+          </p>
+        </div>
+
+        <div class="teams-2-grid">
+          
+          <!-- Team Card 1: Ayurveda Doctors Team -->
+          <div class="team-feature-card">
+            <div class="team-photo-wrap">
+              <img src="../images/card-consultation.jpg" alt="Ayurveda Doctors Consultation" loading="lazy">
+            </div>
+            <div class="team-card-content">
+              <span class="team-focus-badge">CLINICAL PANEL</span>
+              <h3>Ayurveda Doctors Team</h3>
+              <div class="team-focus-pill">
+                <i class="fas fa-user-md" style="color:#6B705C; margin-right:6px;"></i> Personalised Consultation, Diagnosis &amp; Treatment Guidance
+              </div>
+              <p>
+                An experienced panel of senior and consulting BAMS physicians deeply versed in classical diagnosis, musculoskeletal recovery, and lifestyle disorders. Every recovery journey is monitored directly under their clinical supervision.
+              </p>
+            </div>
+          </div>
+
+          <!-- Team Card 2: Therapist & Operational Team -->
+          <div class="team-feature-card">
+            <div class="team-photo-wrap">
+              <img src="../images/card-therapies.jpg" alt="Ayurvedic Therapists and Treatment Delivery" loading="lazy">
+            </div>
+            <div class="team-card-content">
+              <span class="team-focus-badge">THERAPEUTIC &amp; HOSPITALITY STAFF</span>
+              <h3>Therapist &amp; Operational Team</h3>
+              <div class="team-focus-pill">
+                <i class="fas fa-hands-helping" style="color:#6B705C; margin-right:6px;"></i> Treatment Delivery, Hygiene &amp; Daily Patient Comfort
+              </div>
+              <p>
+                A dynamic, rigorously trained team of certified therapists and guest support staff ensuring seamless therapy sessions, flawless sanitation, and a warm, supportive atmosphere throughout your stay.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 08: LOOKING AHEAD (THE FUTURE VISION)
+         ====================================================================== -->
+    <section class="about-future-section" id="future">
+      <div class="container">
+        
+        <div class="about-future-card">
+          <span class="about-eyebrow center-text">LOOKING AHEAD</span>
+          <h2 class="about-h2 center-text" style="max-width:720px; margin:0 auto 22px;">Shaping the Future of Holistic Living</h2>
+          
+          <p class="about-future-body">
+            As Nallayil Ayurveda steps into its next era, our goal is to set progressive benchmarks in integrative healthcare. By harmonizing authentic heritage with progressive medical tourism and sustainable manufacturing, we are building a holistic ecosystem that nurtures long-term vitality for generations to come.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 09: FINAL CALL TO ACTION (BOOKING SECTION)
+         ====================================================================== -->
+    <section class="about-cta-section" id="booking">
+      <div class="container">
+        
+        <div class="about-cta-card">
+          <span class="about-eyebrow center-text">START YOUR JOURNEY</span>
+          <h2 class="about-h2 center-text">Begin Your Ayurveda Journey</h2>
+          <p class="about-cta-subtext">
+            Take the first step towards personalised Ayurvedic care and lasting well-being at Nallayil.
+          </p>
+
+          <div class="about-cta-actions">
+            <a href="../contact.html#booking-sheet" class="btn btn-about-primary">
+              <span>Book an Appointment</span> <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://wa.me/919447638838?text=Hi%20Nallayil%20Ayurveda,%20I%20would%20like%20to%20know%20more%20about%20your%20treatments" target="_blank" rel="noopener noreferrer" class="btn btn-about-secondary">
+              <i class="fab fa-whatsapp" style="color:#25D366; font-size:1.1rem;"></i>
+              <span>Chat with Care Team 💬</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PREMIER FOOTER SECTION
          ====================================================================== -->
     <footer class="site-footer-v2">
       <div class="container">
         
-        <!-- 4-Column Split Layout -->
+        <!-- Main Footer 4-Col Grid -->
         <div class="footer-v2-grid">
           
-          <!-- Column 1 — Nallayil Ayurveda -->
-          <div class="footer-v2-col">
-            <a href="../index.html" class="footer-v2-brand-logo">
-              <div class="footer-v2-emblem">
-                <img src="../images/nallayil logo.jpg" onerror="this.onerror=null; this.src='../img/nallayil-logo.jpg';" alt="Nallayil Ayurveda" style="width:100%; height:100%; object-fit:cover;">
+          <!-- Col 1: Brand & Heritage -->
+          <div class="footer-v2-col footer-v2-brand-col">
+            <div class="footer-v2-brand">
+              <div class="footer-v2-logo-wrap">
+                <img src="../images/nallayil logo.jpg" onerror="this.onerror=null; this.src='../img/nallayil-logo.jpg';" alt="Nallayil Ayurveda Logo">
               </div>
               <div>
-                <div class="footer-v2-brand-title">Nallayil Ayurveda</div>
-                <div class="footer-v2-brand-sub">Hospital &amp; Ayur Home • Kerala</div>
+                <span class="footer-v2-brand-name">NALLAYIL AYURVEDA</span>
+                <span class="footer-v2-brand-sub">HERITAGE HOSPITAL &amp; AYUR HOME</span>
               </div>
-            </a>
-            <p class="footer-v2-statement">
-              “Rooted in Kerala’s Ayurvedic tradition, Nallayil Ayurveda brings authentic healing and personalised care for modern well-being.”
+            </div>
+            <p class="footer-v2-bio">
+              A classical healing sanctuary in Manjeri, Malappuram. Dedicated to genuine Kerala Panchakarma, specialized Marma Chikitsa, and restorative living.
             </p>
-            <div class="footer-v2-social">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <div class="footer-v2-socials">
+              <a href="https://wa.me/919447638838" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="tel:+919447638838" aria-label="Call Hospital Desk"><i class="fas fa-phone-alt"></i></a>
+              <a href="https://maps.google.com/?q=Nallayil+Ayurveda+Heritage+Hospital+Mullampara+Manjeri" target="_blank" rel="noopener noreferrer" aria-label="Google Maps Location"><i class="fas fa-map-marker-alt"></i></a>
             </div>
           </div>
 
-          <!-- Column 2 — Quick Links -->
+          <!-- Col 2: Navigation Links -->
           <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Quick Links</h4>
+            <h4 class="footer-v2-title">Quick Links</h4>
             <ul class="footer-v2-links">
-              <li><a href="../about.html" class="footer-v2-link">About Us</a></li>
-              <li><a href="../treatments.html" class="footer-v2-link">Treatments</a></li>
-              <li><a href="../journal.html" class="footer-v2-link">Ayurveda Journal</a></li>
-              <li><a href="javascript:void(0)" onclick="openCareOfferModal()" class="footer-v2-link">Offers &amp; Updates</a></li>
-              <li><a href="../contact.html" class="footer-v2-link">Contact Us</a></li>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About Us</a></li>
+              <li><a href="../treatments.html">Treatments &amp; Therapies</a></li>
+              <li><a href="../journal.html">Ayurveda Journal</a></li>
+              <li><a href="../gallery.html">Photo Gallery</a></li>
+              <li><a href="../contact.html">Contact &amp; Directions</a></li>
+              <li><a href="../booking.html">Book Online Consultation</a></li>
             </ul>
           </div>
 
-          <!-- Column 3 — Treatments (CMS-driven list) -->
+          <!-- Col 3: Specialized Care -->
           <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Treatments</h4>
-            <ul class="footer-v2-links" id="footerTreatmentsList">
-              <li><a href="../treatments.html#panchakarma" class="footer-v2-link">Panchakarma Detox</a></li>
-              <li><a href="../treatments.html#abhyanga" class="footer-v2-link">Abhyanga Full-Body Rejuvenation</a></li>
-              <li><a href="../treatments.html#shirodhara" class="footer-v2-link">Shirodhara Mind Therapy</a></li>
-              <li><a href="../treatments.html#kizhi" class="footer-v2-link">Kizhi &amp; Potali Joint Care</a></li>
-              <li><a href="../treatments.html#marma" class="footer-v2-link">Marma Spine &amp; Disc Care</a></li>
+            <h4 class="footer-v2-title">Healing Domains</h4>
+            <ul class="footer-v2-links">
+              <li><a href="../treatments.html">Classical Panchakarma</a></li>
+              <li><a href="../treatments.html">Spine &amp; Disc Rehabilitation</a></li>
+              <li><a href="../treatments.html">Knee &amp; Joint Arthritis Care</a></li>
+              <li><a href="../treatments.html">Marma &amp; Musculoskeletal</a></li>
+              <li><a href="../treatments.html">Stress, Sleep &amp; Neurological</a></li>
+              <li><a href="../treatments.html">Women's Postnatal &amp; Wellness</a></li>
             </ul>
-            <a href="../treatments.html" class="footer-v2-cta-link">
-              <span>View All Treatments</span> <span style="font-size:1.1rem;">→</span>
-            </a>
           </div>
 
-          <!-- Column 4 — Contact -->
-          <div class="footer-v2-col">
-            <h4 class="footer-v2-heading">Contact</h4>
+          <!-- Col 4: Reach Us -->
+          <div class="footer-v2-col footer-v2-contact-col">
+            <h4 class="footer-v2-title">Hospital Location</h4>
             <ul class="footer-v2-contact-list">
               <li class="footer-v2-contact-item">
-                <i class="far fa-calendar-check"></i>
+                <i class="fas fa-hospital-alt"></i>
                 <div>
-                  <a href="../contact.html#booking-sheet" style="font-weight:600; color:#4ADE80;">Book an Appointment → Booking Sheet</a>
-                </div>
-              </li>
-              <li class="footer-v2-contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                  <a href="https://maps.google.com/?q=NALLAYIL+AYUREDA+HERITAGE" target="_blank" rel="noopener noreferrer">Mullampara, Manjeri, Malappuram, Kerala 676121 (Google Maps)</a>
+                  <strong>Mullampara, Manjeri</strong><br>
+                  Malappuram District, Kerala - 676121
                 </div>
               </li>
               <li class="footer-v2-contact-item">
                 <i class="fas fa-phone-alt"></i>
                 <div>
-                  <a href="tel:+919447638838">+91 94476 38838</a> / <a href="tel:+919961003718">+91 99610 03718</a>
+                  <a href="tel:+919447638838">+91 94476 38838</a>
                 </div>
               </li>
               <li class="footer-v2-contact-item">
@@ -576,7 +662,7 @@
       <!-- Expanded Menu Items (Appear vertically above trigger) -->
       <div class="nallayil-care-menu" id="nallayilCareMenu">
         
-        <!-- Smart Offer Button (Rendered only when active offer exists in CMS) -->
+        <!-- Smart Offer Button -->
         <button type="button" class="care-action-btn btn-act-offer" id="careOfferBtn" onclick="openCareOfferModal()" style="display:none;">
           <i class="fas fa-gift"></i>
           <span>Offer <span class="care-offer-pulse">NEW</span></span>
@@ -636,6 +722,12 @@
         </div>
       </div>
     </div>
+
+  </div>
+
+  <!-- Shared Data & Core Application Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
 
 </body>
 </html>
