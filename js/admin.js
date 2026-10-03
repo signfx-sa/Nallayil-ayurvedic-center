@@ -1074,9 +1074,9 @@ async function handleGitHubDirectPush() {
       }
     });
 
-    // If 404 and path started with site/, try without site/ prefix
-    if (!checkRes.ok && path.startsWith('site/')) {
-      const altPath = path.replace(/^site\//, '');
+    // Bidirectional auto-discovery: Try js/data.js and site/js/data.js automatically if 404
+    if (!checkRes.ok && checkRes.status === 404) {
+      const altPath = path.startsWith('site/') ? path.replace(/^site\//, '') : ('site/' + path);
       const altUrl = `https://api.github.com/repos/${repo}/contents/${altPath}?ref=${branch}`;
       const altRes = await fetch(altUrl, {
         headers: {
@@ -1087,7 +1087,8 @@ async function handleGitHubDirectPush() {
       if (altRes.ok) {
         path = altPath;
         checkRes = altRes;
-        document.getElementById('ghPathInput').value = path;
+        const pInput = document.getElementById('ghPathInput');
+        if (pInput) pInput.value = path;
         localStorage.setItem('nallayil_gh_path', path);
       }
     }

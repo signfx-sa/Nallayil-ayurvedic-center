@@ -963,59 +963,84 @@
 
       <!-- TAB 1: GITHUB API DIRECT COMMIT -->
       <div class="publish-tab-content active" id="tabContentGitHub">
-        <p style="font-size:0.88rem; color:#4A5D4E; margin-bottom:16px; line-height:1.5;">
-          Push your latest treatments, articles, doctors, hero slides, and page banners directly to your GitHub repository. Once committed, GitHub Pages will automatically rebuild and deploy your changes worldwide in <strong>~30 to 60 seconds</strong>.
-        </p>
+        
+        <!-- Quick 1-Click Action Header Banner -->
+        <div style="background:linear-gradient(135deg, #EAF5ED 0%, #F4FAF5 100%); border:1.5px solid #2E6F4A; border-radius:16px; padding:18px 20px; margin-bottom:20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
+          <div>
+            <div style="font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:1.2px; color:#087A24; margin-bottom:3px;">
+              <i class="fas fa-satellite-dish" style="margin-right:4px;"></i> Live Website Sync Bridge
+            </div>
+            <div style="font-weight:700; color:#143322; font-size:1.02rem;">
+              Push Updates to GitHub Pages
+            </div>
+            <div style="font-size:0.78rem; color:#556257; margin-top:2px;">
+              Updates your live website globally in ~30 to 60 seconds
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="handleGitHubDirectPush()" id="ghQuickPushBtn" style="padding:12px 26px; font-size:0.96rem; font-weight:700; border-radius:50px; background:#087A24; box-shadow:0 4px 14px rgba(8,122,36,0.35); cursor:pointer;">
+            <i class="fas fa-rocket" style="margin-right:6px;"></i> Publish Live Now
+          </button>
+        </div>
+
+        <!-- Live Sync Status Box (Immediate Feedback) -->
+        <div class="sync-status-indicator" id="ghSyncStatusBox" style="margin-bottom:16px;"></div>
 
         <form onsubmit="event.preventDefault(); handleGitHubDirectPush();">
-          <div class="form-group" style="margin-bottom:14px;">
-            <label class="form-label">GitHub Repository (Owner / Repository Name) *</label>
-            <input type="text" id="ghRepoInput" class="form-control" placeholder="e.g. your-username/nallayil-website" required>
-            <small style="color:#666; font-size:0.75rem;">Example: <code>kmunshidk/nallayil-website</code></small>
+          
+          <!-- Collapsible / Editable GitHub Connection Details -->
+          <div style="background:#FFFFFF; border:1px solid #D5DFD3; border-radius:14px; padding:18px 20px; margin-bottom:16px;">
+            <div style="font-weight:700; font-size:0.88rem; color:#143322; margin-bottom:14px; display:flex; align-items:center; gap:8px;">
+              <i class="fab fa-github" style="font-size:1.1rem; color:#087A24;"></i>
+              <span>GitHub Connection Configuration</span>
+            </div>
+
+            <div class="form-group" style="margin-bottom:14px;">
+              <label class="form-label">GitHub Repository (Owner / Repository Name) *</label>
+              <input type="text" id="ghRepoInput" class="form-control" placeholder="e.g. signfx-sa/Nallayil-ayurvedic-center" required>
+              <small style="color:#666; font-size:0.75rem;">Example: <code>signfx-sa/Nallayil-ayurvedic-center</code></small>
+            </div>
+
+            <div class="form-row form-row-2" style="margin-bottom:14px;">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Target Branch *</label>
+                <input type="text" id="ghBranchInput" class="form-control" value="main" placeholder="main" required>
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">File Path in Repository *</label>
+                <input type="text" id="ghPathInput" class="form-control" value="js/data.js" placeholder="js/data.js or site/js/data.js" required>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:6px;">
+              <label class="form-label">GitHub Personal Access Token (PAT) *</label>
+              <div style="position:relative;">
+                <input type="password" id="ghTokenInput" class="form-control" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" required style="padding-right:45px;">
+                <button type="button" onclick="toggleTokenVisibility()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:#666; cursor:pointer;" aria-label="Toggle Token Visibility">
+                  <i class="fas fa-eye" id="ghTokenToggleIcon"></i>
+                </button>
+              </div>
+              <small style="color:#666; font-size:0.75rem;">Stored securely in this browser's localStorage only. Never shared with third parties.</small>
+            </div>
           </div>
 
-          <div class="form-row form-row-2" style="margin-bottom:14px;">
-            <div class="form-group" style="margin-bottom:0;">
-              <label class="form-label">Target Branch *</label>
-              <input type="text" id="ghBranchInput" class="form-control" value="main" placeholder="main" required>
-            </div>
-            <div class="form-group" style="margin-bottom:0;">
-              <label class="form-label">File Path in Repository *</label>
-              <input type="text" id="ghPathInput" class="form-control" value="site/js/data.js" placeholder="site/js/data.js or js/data.js" required>
-            </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:14px;">
+            <button type="button" class="btn btn-outline" onclick="closePublishModal()">Close Window</button>
+            <button type="submit" class="btn btn-primary" id="ghPushBtn" style="padding:10px 22px; font-weight:700;">
+              <i class="fab fa-github" style="margin-right:6px;"></i> Commit &amp; Publish to GitHub
+            </button>
           </div>
 
-          <div class="form-group" style="margin-bottom:16px;">
-            <label class="form-label">GitHub Personal Access Token (PAT) *</label>
-            <div style="position:relative;">
-              <input type="password" id="ghTokenInput" class="form-control" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" required style="padding-right:45px;">
-              <button type="button" onclick="toggleTokenVisibility()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:#666; cursor:pointer;" aria-label="Toggle Token Visibility">
-                <i class="fas fa-eye" id="ghTokenToggleIcon"></i>
-              </button>
-            </div>
-            <small style="color:#666; font-size:0.75rem;">Stored securely in this browser's localStorage only. Never shared or sent to any third party.</small>
-          </div>
-
-          <details class="github-guide-box">
-            <summary><i class="fas fa-question-circle"></i> How to generate a free GitHub Token (1 minute guide)</summary>
+          <details class="github-guide-box" style="margin-top:18px;">
+            <summary><i class="fas fa-question-circle"></i> Need a new GitHub Token? (Quick 1-Minute Guide)</summary>
             <ol>
-              <li>Go to <strong>github.com</strong> and click your profile icon (top right) &rarr; <strong>Settings</strong>.</li>
-              <li>Scroll down to the bottom of the left sidebar &rarr; click <strong>Developer Settings</strong>.</li>
+              <li>Go to <strong>github.com</strong> &rarr; Profile icon &rarr; <strong>Settings</strong> &rarr; <strong>Developer Settings</strong>.</li>
               <li>Click <strong>Personal access tokens</strong> &rarr; <strong>Tokens (classic)</strong>.</li>
-              <li>Click <strong>Generate new token (classic)</strong>. Note: <em>Nallayil Admin</em>.</li>
+              <li>Click <strong>Generate new token (classic)</strong> with note <em>Nallayil Admin</em>.</li>
               <li>Check the <strong><code>repo</code></strong> scope box (Full control of private/public repositories).</li>
               <li>Click <strong>Generate token</strong> at the bottom, copy the token (starts with <code>ghp_</code>), and paste it above!</li>
             </ol>
           </details>
 
-          <div class="sync-status-indicator" id="ghSyncStatusBox"></div>
-
-          <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
-            <button type="button" class="btn btn-outline" onclick="closePublishModal()">Cancel</button>
-            <button type="submit" class="btn btn-primary" id="ghPushBtn">
-              <i class="fab fa-github"></i> Commit &amp; Publish to GitHub
-            </button>
-          </div>
         </form>
       </div>
 
